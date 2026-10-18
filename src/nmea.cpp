@@ -1086,7 +1086,7 @@ int GPSDriverNMEA::receive(unsigned timeout)
 
 bool GPSDriverNMEA::newEpoch(double last, double current) const
 {
-    return _unicore_mode ? (std::isfinite(current) && current >= 0.0 && (current > 0.0 || last > 235900.0) && current < 240000.0 && current != last)
+    return _unicore_mode ? (std::isfinite(current) && current >= 0.0 && (current > 0.0 || last > 235900.0) && current < 240000.0 && (current > last || (last > 235900.0 && current < 100.0)))
            : last < current;
 }
 

@@ -34,6 +34,7 @@
 #include "unicore.h"
 #include "crc.h"
 #include <cstdio>
+#include <cmath>
 #include <stdlib.h>
 #include <string.h>
 
@@ -128,107 +129,73 @@ bool UnicoreParser::isHeading() const
 {
 	const char header[] = "UNIHEADINGA";
 
-	return strncmp(header, _buffer, strlen(header)) == 0;
+	return strncmp(header, _buffer, strlen(header)) == 0 && _buffer[strlen(header)] == 44;
 }
 
 bool UnicoreParser::isAgrica() const
 {
 	const char header[] = "AGRICA";
 
-	return strncmp(header, _buffer, strlen(header)) == 0;
+	return strncmp(header, _buffer, strlen(header)) == 0 && _buffer[strlen(header)] == 44;
 }
 
 bool UnicoreParser::extractHeading()
 {
-	// The basline starts after ;,, and then follows the heading.
-
-	// Skip to ;
-	char *ptr = strchr(_buffer, ';');
-
-	if (ptr == nullptr) {
-		return false;
-	}
-
-	ptr = strtok(ptr, ",");
-
-	unsigned i = 0;
-
-	while (ptr != nullptr) {
-		ptr = strtok(nullptr, ",");
-
-		if (ptr == nullptr) {
-			return false;
-		}
-
-		if (i == 1) {
-			_heading.baseline_m = strtof(ptr, nullptr);
-
-		} else if (i == 2) {
-			_heading.heading_deg = strtof(ptr, nullptr);
-
-		} else if (i == 5) {
-			_heading.heading_stddev_deg = strtof(ptr, nullptr);
-			return true;
-		}
-
-		++i;
-	}
-
-	return false;
+    _heading = {};
+    char *body = strchr(_buffer, ';');
+    if (!body) { return false; }
+    char *fields[8] {};
+    fields[0] = body + 1;
+    for (unsigned i = 1; i < 8; ++i) {
+        char *comma = strchr(fields[i - 1], ',');
+        if (!comma) { return false; }
+        *comma = '\0'; fields[i] = comma + 1;
+    }
+    if (char *comma = strchr(fields[7], ',')) { *comma = '\0'; }
+    float values[3] {};
+    const unsigned indices[] = {2, 3, 6};
+    for (unsigned i = 0; i < 3; ++i) {
+        char *end = nullptr;
+        values[i] = strtof(fields[indices[i]], &end);
+        if (end == fields[indices[i]] || *end != '\0' || !std::isfinite(values[i])) { return false; }
+    }
+    _heading.baseline_m = values[0];
+    _heading.heading_deg = values[1];
+    _heading.heading_stddev_deg = values[2];
+    const bool fixed = strcmp(fields[1], "NARROW_INT") == 0 || strcmp(fields[1], "L1_INT") == 0
+                       || strcmp(fields[1], "WIDE_INT") == 0;
+    _heading.valid = strcmp(fields[0], "SOL_COMPUTED") == 0 && fixed
+                     && values[0] > 0.f && values[1] >= 0.f && values[1] < 360.f
+                     && values[2] > 0.f && values[2] <= 180.f;
+    return true;
 }
 
 bool UnicoreParser::extractAgrica()
 {
-	// Skip to ;
-	char *ptr = strchr(_buffer, ';');
-
-	if (ptr == nullptr) {
-		return false;
-	}
-
-	ptr = strtok(ptr, ",");
-
-	unsigned i = 0;
-
-	while (ptr != nullptr) {
-		ptr = strtok(nullptr, ",");
-
-		if (ptr == nullptr) {
-			return false;
-		}
-
-		if (i == 21) {
-			_agrica.velocity_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 22) {
-			_agrica.velocity_north_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 23) {
-			_agrica.velocity_east_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 24) {
-			_agrica.velocity_up_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 25) {
-			_agrica.stddev_velocity_north_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 26) {
-			_agrica.stddev_velocity_east_m_s = strtof(ptr, nullptr);
-		}
-
-		else if (i == 27) {
-			_agrica.stddev_velocity_up_m_s = strtof(ptr, nullptr);
-			_agrica_valid = true;
-			return true;
-		}
-
-		++i;
-	}
-
-	return false;
+    _agrica_valid = false;
+    char *body = strchr(_buffer, ';');
+    if (!body) { return false; }
+    char *field = body + 1;
+    float velocity[7] {};
+    for (unsigned index = 0; index <= 28; ++index) {
+        char *comma = strchr(field, ',');
+        if (!comma) { return false; }
+        *comma = '\0';
+        if (index >= 22) {
+            char *end = nullptr;
+            velocity[index - 22] = strtof(field, &end);
+            if (end == field || *end != '\0' || !std::isfinite(velocity[index - 22])) { return false; }
+        }
+        field = comma + 1;
+    }
+    if (velocity[0] < 0.f || velocity[4] < 0.f || velocity[5] < 0.f || velocity[6] < 0.f) { return false; }
+    _agrica.velocity_m_s = velocity[0];
+    _agrica.velocity_north_m_s = velocity[1];
+    _agrica.velocity_east_m_s = velocity[2];
+    _agrica.velocity_up_m_s = velocity[3];
+    _agrica.stddev_velocity_north_m_s = velocity[4];
+    _agrica.stddev_velocity_east_m_s = velocity[5];
+    _agrica.stddev_velocity_up_m_s = velocity[6];
+    _agrica_valid = true;
+    return true;
 }

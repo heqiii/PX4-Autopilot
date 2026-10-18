@@ -45,6 +45,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <cmath>
 #include <string.h>
 #include <ctime>
 
@@ -65,12 +66,13 @@
 GPSDriverNMEA::GPSDriverNMEA(GPSCallbackPtr callback, void *callback_user,
 			     sensor_gps_s *gps_position,
 			     satellite_info_s *satellite_info,
-			     float heading_offset) :
+			     float heading_offset, bool unicore_mode) :
 	GPSHelper(callback, callback_user),
 	_gps_position(gps_position),
 	_satellite_info(satellite_info),
 	_heading_offset(heading_offset)
 {
+	_unicore_mode = unicore_mode;
 	decodeInit();
 }
 
@@ -224,7 +226,7 @@ int GPSDriverNMEA::handleMessage(int len)
 			_gps_position->longitude_deg = int(lon * 0.01) + (lon * 0.01 - int(lon * 0.01)) * 100.0 / 60.0;
 			_gps_position->latitude_deg = int(lat * 0.01) + (lat * 0.01 - int(lat * 0.01)) * 100.0 / 60.0;
 
-			if (!_POS_received && (_last_POS_timeUTC < utc_time)) {
+			if (!_POS_received && newEpoch(_last_POS_timeUTC, utc_time)) {
 				_last_POS_timeUTC = utc_time;
 				_POS_received = true;
 				_rate_count_lat_lon++;
@@ -337,7 +339,7 @@ int GPSDriverNMEA::handleMessage(int len)
 			_gps_position->fix_type = 3 + fix_quality - 1;
 		}
 
-		if (!_POS_received && (_last_POS_timeUTC < utc_time)) {
+		if (!_POS_received && newEpoch(_last_POS_timeUTC, utc_time)) {
 			_last_POS_timeUTC = utc_time;
 			_gps_position->timestamp = gps_absolute_time();
 			_POS_received = true;
@@ -450,7 +452,7 @@ int GPSDriverNMEA::handleMessage(int len)
 		_gps_position->altitude_ellipsoid_m = (double)(alt + geoid_h);
 		_sat_num_gns = static_cast<int>(num_of_sv);
 
-		if (!_POS_received && (_last_POS_timeUTC < utc_time)) {
+		if (!_POS_received && newEpoch(_last_POS_timeUTC, utc_time)) {
 			_last_POS_timeUTC = utc_time;
 			_gps_position->timestamp = gps_absolute_time();
 			_POS_received = true;
@@ -539,14 +541,14 @@ int GPSDriverNMEA::handleMessage(int len)
 		_gps_position->cog_rad = track_rad;
 		_gps_position->c_variance_rad = 0.1f;
 
-		if (!_unicore_parser.agricaValid()) {
+		if (!unicoreVelocityFresh()) {
 			// We ignore RMC position for Unicore, because we have GGA configured at the rate we want.
 
 			/* convert from degrees, minutes and seconds to degrees */
 			_gps_position->latitude_deg = int(lat * 0.01) + (lat * 0.01 - int(lat * 0.01)) * 100.0 / 60.0;
 			_gps_position->longitude_deg = int(lon * 0.01) + (lon * 0.01 - int(lon * 0.01)) * 100.0 / 60.0;
 
-			if (!_POS_received && (_last_POS_timeUTC < utc_time)) {
+			if (!_unicore_mode && !_POS_received && newEpoch(_last_POS_timeUTC, utc_time)) {
 				_gps_position->timestamp = gps_absolute_time();
 				_last_POS_timeUTC = utc_time;
 				_POS_received = true;
@@ -556,10 +558,10 @@ int GPSDriverNMEA::handleMessage(int len)
 			_gps_position->vel_m_s = velocity_ms;
 			_gps_position->vel_n_m_s = velocity_north;
 			_gps_position->vel_e_m_s = velocity_east;
-			_gps_position->vel_ned_valid = true; /**< Flag to indicate if NED speed is valid */
+			_gps_position->vel_ned_valid = !_unicore_mode || Status == 'A'; /**< Flag to indicate if NED speed is valid */
 			_gps_position->s_variance_m_s = 0;
 
-			if (!_VEL_received && (_last_VEL_timeUTC < utc_time)) {
+			if ((!_unicore_mode || Status == 'A') && !_VEL_received && newEpoch(_last_VEL_timeUTC, utc_time)) {
 				_last_VEL_timeUTC = utc_time;
 				_VEL_received = true;
 				_rate_count_vel++;
@@ -887,7 +889,7 @@ int GPSDriverNMEA::handleMessage(int len)
 			track_rad -= 2.f * M_PI_F; // rad in range [-pi, pi]
 		}
 
-		if (!_unicore_parser.agricaValid()) {
+		if (!unicoreVelocityFresh()) {
 			float velocity_ms = ground_speed / 1.9438445f;
 			float velocity_north = velocity_ms * cosf(track_rad);
 			float velocity_east  = velocity_ms * sinf(track_rad);
@@ -937,7 +939,7 @@ int GPSDriverNMEA::receive(unsigned timeout)
 	int handled = 0;
 
 	while (true) {
-		int ret = read(buf, sizeof(buf), timeout);
+        int ret = read(buf, sizeof(buf), timeout);
 
 		if (ret < 0) {
 			/* something went wrong when polling or reading */
@@ -951,6 +953,14 @@ int GPSDriverNMEA::receive(unsigned timeout)
 				int l = parseChar(buf[i]);
 
 				if (l > 0) {
+                    const char *id = reinterpret_cast<const char *>(_rx_buffer + 3);
+                    int fields = 0;
+                    for (int j = 0; j < l; ++j) { if (_rx_buffer[j] == 44) { ++fields; } }
+                    if ((strncmp(id, "GGA,", 4) == 0 && fields >= 14) || (strncmp(id, "RMC,", 4) == 0 && fields >= 9)
+                        || (strncmp(id, "GSA,", 4) == 0 && fields >= 17) || (strncmp(id, "GST,", 4) == 0 && fields == 8)
+                        || (strncmp(id, "GSV,", 4) == 0 && fields >= 3)) {
+                        _receiver_message_last = gps_absolute_time();
+                    }
 					handled |= handleMessage(l);
 				}
 
@@ -961,10 +971,11 @@ int GPSDriverNMEA::receive(unsigned timeout)
 					// Don't mark this as handled, just publish it with position later.
 
 					_unicore_heading_received_last = gps_absolute_time();
+                    _receiver_message_last = _unicore_heading_received_last;
 
 					// Unicore seems to publish heading and standard deviation of 0
 					// to signal that it has not initialized the heading yet.
-					if (_unicore_parser.heading().heading_stddev_deg > 0.0f) {
+					if (_unicore_parser.heading().valid) {
 						// Unicore publishes the heading between True North and
 						// the baseline vector from master antenna to slave
 						// antenna.
@@ -977,6 +988,10 @@ int GPSDriverNMEA::receive(unsigned timeout)
 							_unicore_parser.heading().heading_stddev_deg);
 					}
 
+                    if (!_unicore_parser.heading().valid) {
+                        _gps_position->heading = NAN;
+                        _gps_position->heading_accuracy = NAN;
+                    }
 					NMEA_DEBUG("Got heading: %.1f deg, stddev: %.1f deg, baseline: %.2f m\n",
 						   (double)_unicore_parser.heading().heading_deg,
 						   (double)_unicore_parser.heading().heading_stddev_deg,
@@ -992,23 +1007,25 @@ int GPSDriverNMEA::receive(unsigned timeout)
 					// Receiving this message tells us that we are talking to a UM982. If
 					// UNIHEADINGA is not configured by default, we request it now.
 
-					if (gps_absolute_time() - _unicore_heading_received_last > 1000000) {
+					if (!_unicore_mode && gps_absolute_time() - _unicore_heading_received_last > 1000000) {
 						request_unicore_messages();
 					}
 
+					_unicore_agrica_received_last = gps_absolute_time();
+                    _receiver_message_last = _unicore_agrica_received_last;
 					_gps_position->vel_m_s = _unicore_parser.agrica().velocity_m_s;
 					_gps_position->vel_n_m_s = _unicore_parser.agrica().velocity_north_m_s;
 					_gps_position->vel_e_m_s = _unicore_parser.agrica().velocity_east_m_s;
 					_gps_position->vel_d_m_s = -_unicore_parser.agrica().velocity_up_m_s;
 					_gps_position->s_variance_m_s =
-						(_unicore_parser.agrica().stddev_velocity_north_m_s * _unicore_parser.agrica().stddev_velocity_north_m_s +
+                        sqrtf((_unicore_parser.agrica().stddev_velocity_north_m_s * _unicore_parser.agrica().stddev_velocity_north_m_s +
 						 _unicore_parser.agrica().stddev_velocity_east_m_s * _unicore_parser.agrica().stddev_velocity_east_m_s +
 						 _unicore_parser.agrica().stddev_velocity_up_m_s * _unicore_parser.agrica().stddev_velocity_up_m_s)
-						/ 3.0f;
+                        / 3.0f);
 
 					_gps_position->cog_rad = atan2f(
-									 _unicore_parser.agrica().velocity_north_m_s,
-									 _unicore_parser.agrica().velocity_east_m_s);
+                                     _unicore_parser.agrica().velocity_east_m_s,
+                                     _unicore_parser.agrica().velocity_north_m_s);
 
 					_gps_position->vel_ned_valid = true;
 					_VEL_received = true;
@@ -1019,16 +1036,83 @@ int GPSDriverNMEA::receive(unsigned timeout)
 				}
 			}
 
+            if (_unicore_mode) {
+                const gps_abstime now = gps_absolute_time();
+                if (_assembly_start == 0 && (_POS_received || _VEL_received)) { _assembly_start = now; }
+                if ((handled & 1) || (_POS_received && _VEL_received)) {
+                    _POS_received = _VEL_received = false;
+                    if (_gps_position->fix_type >= 3 && _gps_position->vel_ned_valid
+                        && std::isfinite(_gps_position->latitude_deg) && std::fabs(_gps_position->latitude_deg) <= 90.0
+                        && std::isfinite(_gps_position->longitude_deg) && std::fabs(_gps_position->longitude_deg) <= 180.0
+                        && std::isfinite(_gps_position->altitude_msl_m) && std::isfinite(_gps_position->altitude_ellipsoid_m)
+                        && std::isfinite(_gps_position->vel_n_m_s) && std::isfinite(_gps_position->vel_e_m_s)
+                        && std::isfinite(_gps_position->vel_d_m_s)) {
+                        _nav_publish_last = now;
+                        _status_publish_last = now;
+                        _assembly_start = 0;
+                        return handled | 1;
+                    }
+                    handled &= ~1;
+                }
+                // A supported CRC-valid response proves presence, never a usable fix.
+                if ((_assembly_start == 0 || now - _assembly_start >= 150000)
+                    && _receiver_message_last > 0 && now - _receiver_message_last < 1300000
+                    && (_gps_position->fix_type < 3 || _nav_publish_last == 0 || now - _nav_publish_last > 1300000)
+                    && (_status_publish_last == 0 || now - _status_publish_last >= 200000)) {
+                    publishNoFix();
+                    return handled | 1;
+                }
+                if (now - _unicore_request_last >= 5000000
+                    && (_unicore_agrica_received_last == 0 || now - _unicore_agrica_received_last > 1300000
+                        || _unicore_heading_received_last == 0 || now - _unicore_heading_received_last > 1300000)) {
+                    request_unicore_messages();
+                }
+            }
 			if (handled > 0) {
 				return handled;
 			}
 		}
 
+        if (_unicore_mode && gps_absolute_time() - _unicore_request_last >= 5000000) {
+            request_unicore_messages();
+        }
 		/* abort after timeout if no useful packets received */
 		if (time_started + timeout * 1000 < gps_absolute_time()) {
 			return -1;
 		}
 	}
+}
+
+
+bool GPSDriverNMEA::newEpoch(double last, double current) const
+{
+    return _unicore_mode ? (std::isfinite(current) && current >= 0.0 && (current > 0.0 || last > 235900.0) && current < 240000.0 && current != last)
+           : last < current;
+}
+
+bool GPSDriverNMEA::unicoreVelocityFresh() const
+{
+    return _unicore_parser.agricaValid() && (!_unicore_mode
+           || (_unicore_agrica_received_last > 0 && gps_absolute_time() - _unicore_agrica_received_last < 1300000));
+}
+
+void GPSDriverNMEA::publishNoFix()
+{
+    _gps_position->timestamp = gps_absolute_time();
+    _gps_position->timestamp_time_relative = 0;
+    _gps_position->fix_type = 1; // MAVLink: connected, no fix (0 means no GPS).
+    _gps_position->latitude_deg = _gps_position->longitude_deg = 0.0;
+    _gps_position->altitude_msl_m = _gps_position->altitude_ellipsoid_m = 0.0;
+    _gps_position->vel_m_s = _gps_position->vel_n_m_s = _gps_position->vel_e_m_s = _gps_position->vel_d_m_s = 0.f;
+    _gps_position->vel_ned_valid = false;
+    _gps_position->eph = _gps_position->epv = 10000.f;
+    _gps_position->s_variance_m_s = 1000.f;
+    _gps_position->hdop = _gps_position->vdop = 99.99f;
+    _gps_position->heading = _gps_position->heading_accuracy = NAN;
+    _POS_received = _VEL_received = false;
+    _assembly_start = 0;
+    _gps_position->satellites_used = 0;
+    _status_publish_last = _gps_position->timestamp;
 }
 
 void GPSDriverNMEA::handleHeading(float heading_deg, float heading_stddev_deg)
@@ -1052,7 +1136,8 @@ void GPSDriverNMEA::handleHeading(float heading_deg, float heading_stddev_deg)
 
 void GPSDriverNMEA::request_unicore_messages()
 {
-	// Configure position messages on serial port. Don't save it though.
+    _unicore_request_last = gps_absolute_time();
+	// Configure only the receiver's COM1 output; never wipe logs or save flash.
 	{
 		// position
 		uint8_t buf[] = "GPGGA COM1 0.2\r\n";
@@ -1061,7 +1146,7 @@ void GPSDriverNMEA::request_unicore_messages()
 
 	{
 		// velocity
-		uint8_t buf[] = "UNIAGRICA COM1 0.2\r\n";
+		uint8_t buf[] = "AGRICA COM1 0.2\r\n";
 		write(buf, sizeof(buf) - 1);
 	}
 
@@ -1073,19 +1158,19 @@ void GPSDriverNMEA::request_unicore_messages()
 
 	{
 		// eph, epv
-		uint8_t buf[] = "GPGST COM1 1.0\r\n";
+		uint8_t buf[] = "GPGST COM1 0.2\r\n";
 		write(buf, sizeof(buf) - 1);
 	}
 
 	{
 		// vdop
-		uint8_t buf[] = "GPGSA COM1 1.0\r\n";
+		uint8_t buf[] = "GPGSA COM1 0.2\r\n";
 		write(buf, sizeof(buf) - 1);
 	}
 
 	{
 		// time
-		uint8_t buf[] = "GPRMC COM1 1.0\r\n";
+		uint8_t buf[] = "GPRMC COM1 0.2\r\n";
 		write(buf, sizeof(buf) - 1);
 	}
 }
@@ -1175,6 +1260,15 @@ void GPSDriverNMEA::decodeInit()
 int GPSDriverNMEA::configure(unsigned &baudrate, const GPSConfig &config)
 {
 	_output_mode = config.output_mode;
+    if (_unicore_mode && baudrate > 0) {
+        // MyPX4's explicit UM982 port stays pinned while no fix/UTC is available.
+        if (setBaudrate(baudrate) != 0) { return -1; }
+        decodeInit();
+        resetUpdateRates();
+        request_unicore_messages();
+        return 0;
+    }
+
 
 	if (_output_mode != OutputMode::GPS) {
 		NMEA_WARN("RTCM output have to be configured manually");

@@ -54,6 +54,7 @@ public:
 		float heading_deg;
 		float heading_stddev_deg;
 		float baseline_m;
+        bool valid{false};
 	};
 
 	struct Agrica {

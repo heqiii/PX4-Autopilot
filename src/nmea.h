@@ -61,7 +61,7 @@ public:
 	GPSDriverNMEA(GPSCallbackPtr callback, void *callback_user,
 		      sensor_gps_s *gps_position,
 		      satellite_info_s *satellite_info,
-		      float heading_offset = 0.f);
+		      float heading_offset = 0.f, bool unicore_mode = false);
 
 	virtual ~GPSDriverNMEA();
 
@@ -73,7 +73,17 @@ private:
 	void request_unicore_messages();
 
 	UnicoreParser _unicore_parser;
-	gps_abstime _unicore_heading_received_last;
+	gps_abstime _unicore_heading_received_last{0};
+ gps_abstime _unicore_agrica_received_last{0};
+ gps_abstime _unicore_request_last{0};
+ gps_abstime _receiver_message_last{0};
+ gps_abstime _nav_publish_last{0};
+ gps_abstime _status_publish_last{0};
+ gps_abstime _assembly_start{0};
+ bool _unicore_mode{false};
+ bool unicoreVelocityFresh() const;
+ bool newEpoch(double last, double current) const;
+ void publishNoFix();
 
 	enum class NMEADecodeState {
 		uninit,

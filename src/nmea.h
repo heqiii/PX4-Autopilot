@@ -70,7 +70,7 @@ public:
 
 private:
 	void handleHeading(float heading_deg, float heading_stddev_deg);
-	void request_unicore_messages();
+	void request_unicore_messages(bool establish_fallback = false);
 
 	UnicoreParser _unicore_parser;
 	gps_abstime _unicore_heading_received_last{0};

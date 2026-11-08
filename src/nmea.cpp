@@ -1134,16 +1134,28 @@ void GPSDriverNMEA::handleHeading(float heading_deg, float heading_stddev_deg)
 	_gps_position->heading_accuracy = heading_stddev_rad;
 }
 
-void GPSDriverNMEA::request_unicore_messages()
+void GPSDriverNMEA::request_unicore_messages(bool establish_fallback)
 {
 	_unicore_request_last = gps_absolute_time();
 
-	// MyPX4 is wired to receiver COM2. The generic AGRICA-detection path
-	// keeps its existing COM1 output. Send one log command at a time.
+	// Seed 5 Hz on a new MyPX4 link before requesting 20 Hz. A receiver that
+	// rejects the higher rate can keep sending the already configured logs.
+	if (_unicore_mode && establish_fallback) {
+		static constexpr const char *fallback[] = {
+			"GPGGA COM2 0.2\r\n", "AGRICA COM2 0.2\r\n", "UNIHEADINGA COM2 0.2\r\n",
+		};
+
+		for (const char *command : fallback) {
+			write(command, strlen(command));
+		}
+	}
+
+	// Request 20 Hz for position, velocity and heading. Auxiliary reports
+	// remain at 5 Hz on the same UART. Generic COM1 keeps its own schedule.
 	static constexpr const char *commands[][2] = {
-		{"GPGGA COM1 0.2\r\n", "GPGGA COM2 0.2\r\n"},
-		{"AGRICA COM1 0.2\r\n", "AGRICA COM2 0.2\r\n"},
-		{"UNIHEADINGA COM1 0.2\r\n", "UNIHEADINGA COM2 0.2\r\n"},
+		{"GPGGA COM1 0.2\r\n", "GPGGA COM2 0.05\r\n"},
+		{"AGRICA COM1 0.2\r\n", "AGRICA COM2 0.05\r\n"},
+		{"UNIHEADINGA COM1 0.2\r\n", "UNIHEADINGA COM2 0.05\r\n"},
 		{"GPGST COM1 0.2\r\n", "GPGST COM2 0.2\r\n"},
 		{"GPGSA COM1 0.2\r\n", "GPGSA COM2 0.2\r\n"},
 		{"GPRMC COM1 0.2\r\n", "GPRMC COM2 0.2\r\n"},
@@ -1246,7 +1258,7 @@ int GPSDriverNMEA::configure(unsigned &baudrate, const GPSConfig &config)
         if (setBaudrate(baudrate) != 0) { return -1; }
         decodeInit();
         resetUpdateRates();
-        request_unicore_messages();
+        request_unicore_messages(true);
         return 0;
     }
 

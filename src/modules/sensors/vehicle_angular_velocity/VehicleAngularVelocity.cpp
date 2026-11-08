@@ -32,6 +32,9 @@
  ****************************************************************************/
 
 #include "VehicleAngularVelocity.hpp"
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+#include "mypx4_fft_policy.hpp"
+#endif
 
 #include <px4_platform_common/log.h>
 
@@ -277,7 +280,7 @@ bool VehicleAngularVelocity::SensorSelectionUpdate(const hrt_abstime &time_now_u
 					// if no gyro was selected use the first valid sensor_gyro_fifo
 					if (!device_id_valid) {
 						device_id = sensor_gyro_fifo_sub.get().device_id;
-						PX4_WARN("no gyro selected, using sensor_gyro_fifo:%" PRIu8 " %" PRIu32, i, sensor_gyro_fifo_sub.get().device_id);
+						PX4_DEBUG("no gyro selected, using sensor_gyro_fifo:%" PRIu8 " %" PRIu32, i, sensor_gyro_fifo_sub.get().device_id);
 					}
 
 					if (sensor_gyro_fifo_sub.get().device_id == device_id) {
@@ -319,7 +322,7 @@ bool VehicleAngularVelocity::SensorSelectionUpdate(const hrt_abstime &time_now_u
 					// if no gyro was selected use the first valid sensor_gyro
 					if (!device_id_valid) {
 						device_id = sensor_gyro_sub.get().device_id;
-						PX4_WARN("no gyro selected, using sensor_gyro:%" PRIu8 " %" PRIu32, i, sensor_gyro_sub.get().device_id);
+						PX4_DEBUG("no gyro selected, using sensor_gyro:%" PRIu8 " %" PRIu32, i, sensor_gyro_sub.get().device_id);
 					}
 
 					if (sensor_gyro_sub.get().device_id == device_id) {
@@ -684,7 +687,12 @@ void VehicleAngularVelocity::UpdateDynamicNotchFFT(const hrt_abstime &time_now_u
 
 			static constexpr float peak_freq_min = 10.f; // lower bound TODO: configurable?
 
-			const float bandwidth = math::constrain(sensor_gyro_fft.resolution_hz, 8.f, 30.f); // TODO: base on numerical limits?
+			float bandwidth = math::constrain(sensor_gyro_fft.resolution_hz, 8.f, 30.f);
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+			// Fixed-width candidate only for this board's F450 entry profile.
+			// Keep FFT center tracking and the existing validity/enable guards.
+			bandwidth = mypx4::fft_notch_bandwidth(_param_sys_autostart.get(), bandwidth);
+#endif
 
 			float *peak_frequencies[] {sensor_gyro_fft.peak_frequencies_x, sensor_gyro_fft.peak_frequencies_y, sensor_gyro_fft.peak_frequencies_z};
 
@@ -697,7 +705,11 @@ void VehicleAngularVelocity::UpdateDynamicNotchFFT(const hrt_abstime &time_now_u
 
 					if (peak_freq > peak_freq_min) {
 						// update filter parameters if frequency changed or forced
-						if (force || !nf.initialized() || (fabsf(nf.getNotchFreq() - peak_freq) > 0.1f)) {
+						if (force || !nf.initialized() || (fabsf(nf.getNotchFreq() - peak_freq) > 0.1f)
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+						    || (fabsf(nf.getBandwidth() - bandwidth) > 0.1f)
+#endif
+						   ) {
 							nf.setParameters(_filter_sample_rate_hz, peak_freq, bandwidth);
 							perf_count(_dynamic_notch_filter_fft_update_perf);
 						}
@@ -966,6 +978,19 @@ void VehicleAngularVelocity::PrintStatus()
 	perf_print_counter(_dynamic_notch_filter_esc_rpm_init_perf);
 	perf_print_counter(_dynamic_notch_filter_esc_rpm_update_perf);
 
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+	PX4_INFO_RAW("MyPX4 FFT20 candidate: airframe=%ld, device=%" PRIu32 ", active=%d\n",
+		     (long)_param_sys_autostart.get(), _selected_sensor_device_id, _dynamic_notch_fft_available);
+	for (int axis = 0; axis < 3; axis++) {
+		for (int peak = 0; peak < MAX_NUM_FFT_PEAKS; peak++) {
+			auto &nf = _dynamic_notch_filter_fft[axis][peak];
+			if (nf.getNotchFreq() > 0.f) {
+				PX4_INFO_RAW("FFT axis=%d peak=%d center=%.2f bandwidth=%.2f Hz\n", axis, peak,
+					     (double)nf.getNotchFreq(), (double)nf.getBandwidth());
+			}
+		}
+	}
+#endif
 	perf_print_counter(_dynamic_notch_filter_fft_disable_perf);
 	perf_print_counter(_dynamic_notch_filter_fft_update_perf);
 #endif // CONSTRAINED_FLASH

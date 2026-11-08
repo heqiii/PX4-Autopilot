@@ -47,11 +47,11 @@ serial_ports = {
 #         "index": 2,
 #         "default_baudrate": 57600,
 #         },
-#     "URT3": {
-#         "label": "UART 3",
-#         "index": 3,
-#         "default_baudrate": 57600,
-#         },
+    "URT3": {
+        "label": "UART 3",
+        "index": 3,
+        "default_baudrate": 115200,
+        },
 #     "URT4": {
 #         "label": "UART 4",
 #         "index": 4,
@@ -330,4 +330,3 @@ if serial_params_output_file is not None:
         fid.write(template.render(serial_devices=serial_devices,
             ethernet_configuration=ethernet_configuration,
             commands=commands, serial_ports=serial_ports))
-

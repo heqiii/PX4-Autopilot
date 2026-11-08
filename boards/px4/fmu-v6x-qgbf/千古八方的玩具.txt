@@ -1,0 +1,78 @@
+关系类比：
+   Bootloader -> Grub 引导程序   ; 编译命令:  make px4_fmu-v6x-qgbf_bootloader
+   Nuttx      -> Linux 内核     ； 配置命令:  make px4_fmu-v6x-qgbf menuconfig
+   PX         -> Ubuntu 系统    ;  配置命令:  make px4_fmu-v6x-qgbf_default  boardconfig
+                                  编译命令:  make px4_fmu-v6x-qgbf_default
+   PX-app     -> 系统上的app程序  ； 上一步骤同步编译
+
+   PX4固件刷新命令 ： make px4_fmu-v6x-qgbf_default upload
+
+
+修改的目录及文件：
+主要目录： PX4-Autopilot-main\boards\px4\fmu-v6x-qgbf 【复制自 fmu-v6x，使用对比工具查看修改的内容】
+
+
+修改的PX4底层文件，正常下面三个都无需修改：
+    1. 版本号和修订号，用来告诉PX4有哪些设备。 【不应该修改此文件，应该通过电阻值来赋值、或者eeprom赋值】
+       PX4-Autopilot-main\platforms\common\include\px4_platform_common\board_common.h
+
+    2. 买到的FRAM是个黑芯片，读取不到芯片ID，在这个文件里加个。
+       platforms/nuttx/NuttX/nuttx/drivers/mtd/ramtron.c
+
+    3. BMI088 姿态传感器，也是黑芯片， 修改注册的ID就可用了。
+       这俩添加一行打印芯片ID。
+       src/drivers/imu/bosch/bmi088/BMI088_Gyroscope.cpp
+       src/drivers/imu/bosch/bmi088/BMI088_Accelerometer.cpp
+       这俩注册芯片ID
+       drivers/imu/bosch/bmi088/Bosch_BMI088_Accelerometer_Registers.hpp
+       src/drivers/imu/bosch/bmi088/Bosch_BMI088_Gyroscope_Registers.hpp
+#################################################################################################
+以下为备忘，不用看。
+
+default.px4board 添加
+CONFIG_BOARD_SERIAL_GPS1="/dev/ttyS0"
+CONFIG_BOARD_SERIAL_GPS2="/dev/ttyS7"
+CONFIG_BOARD_SERIAL_TEL1="/dev/ttyS6"
+CONFIG_BOARD_SERIAL_TEL2="/dev/ttyS4"
+CONFIG_BOARD_SERIAL_TEL3="/dev/ttyS1"
+CONFIG_BOARD_SERIAL_RC="/dev/ttyS5"
+CONFIG_BOARD_PARAM_FILE="/fs/microsd/mtd_params"
+CONFIG_DRIVERS_MAGNETOMETER_BOSCH_BMM150=y
+
+
+====================================================================================
+FRAM 无法加载，是因为读取的数据都是 0xFF， 无法判断版本。 黑芯片？
+platforms/nuttx/NuttX/nuttx/drivers/mtd/ramtron.c  // 在这个文件里按取到的ID加一个设备
+
+====================================================================================
+SPI 初始化部分：
+
+platform/common/spi.cpp
+里通过 HW 版本号来决定初始化哪个芯片。
+
+
+【相关定义在 board_config.h 文件里
+
+/* HW Version and Revision drive signals Default to 1 to detect */
+#define BOARD_HAS_HW_SPLIT_VERSIONING      // 是否是分开的版本号、修订号
+#define BOARD_NUM_SPI_CFG_HW_VERSIONS 7   // API 有多少个传感器
+#define V6X_16    HW_FMUM_ID(0x10)        // 对应的版本号
+】
+
+各版本号，对应的SPI初始化在
+fmu-v6x-qgbf/src/spi.cpp
+
+版本号，通过电阻值确定；当前配置为从eeprom里读取，也就是0x007;（目前不清楚怎么把版本号写道eeprom里）
+临时写死，版本号 0x10 也就是 【 #define V6X_16  HW_FMUM_ID(0x10)】 这个的值。
+
+HW_BASE_ver 取 0x01 也就是 【std Base No PX4IO】 测试下。
+
+PX4-Autopilot-main\platforms\common\include\px4_platform_common\board_common.h
+
+#  define HW_FMUM_ID(rev)       (0x10 & 0xffff)
+#  define HW_BASE_ID(ver)       (0x01) & 0xffff)
+
+===========================================================
+第二个BASE版本号，逻辑判断在这里。
+PX4-Autopilot-main\platforms\common\pab_manifest.c
+

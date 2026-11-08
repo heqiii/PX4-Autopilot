@@ -43,6 +43,7 @@ void ICM42605::print_usage()
 	PRINT_MODULE_USAGE_COMMAND("start");
 	PRINT_MODULE_USAGE_PARAMS_I2C_SPI_DRIVER(false, true);
 	PRINT_MODULE_USAGE_PARAM_INT('R', 0, 0, 35, "Rotation", true);
+	PRINT_MODULE_USAGE_PARAM_INT('r', 0, 250, 4000, "FIFO transfer rate in Hz (default: IMU_GYRO_RATEMAX)", true);
 	PRINT_MODULE_USAGE_DEFAULT_COMMANDS();
 }
 
@@ -53,10 +54,14 @@ extern "C" int icm42605_main(int argc, char *argv[])
 	BusCLIArguments cli{false, true};
 	cli.default_spi_frequency = SPI_SPEED;
 
-	while ((ch = cli.getOpt(argc, argv, "R:")) != EOF) {
+	while ((ch = cli.getOpt(argc, argv, "R:r:")) != EOF) {
 		switch (ch) {
 		case 'R':
 			cli.rotation = (enum Rotation)atoi(cli.optArg());
+			break;
+
+		case 'r':
+			cli.custom1 = atoi(cli.optArg());
 			break;
 		}
 	}

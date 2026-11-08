@@ -47,6 +47,9 @@
 #include <uORB/topics/sensor_gps.h>
 
 #include "gps_blending.hpp"
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+#include "mypx4_gnss_policy.hpp"
+#endif
 
 using namespace time_literals;
 
@@ -91,6 +94,10 @@ private:
 	perf_counter_t _cycle_perf{perf_alloc(PC_ELAPSED, MODULE_NAME": cycle")};
 
 	GpsBlending _gps_blending;
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+	mypx4::DualGpsSelector<sensor_gps_s> _mypx4_gps_selector;
+	bool _mypx4_dual_gps{false};
+#endif
 
 	DEFINE_PARAMETERS(
 		(ParamInt<px4::params::SENS_GPS_MASK>) _param_sens_gps_mask,

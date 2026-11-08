@@ -1,0 +1,3 @@
+#!/bin/sh
+# MAVLink links are configured through MAV_* defaults in rc.board_defaults and
+# started by the generated rc.serial script.

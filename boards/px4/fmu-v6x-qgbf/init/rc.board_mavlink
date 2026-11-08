@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# PX4 FMUv6X specific board MAVLink startup script.
+#------------------------------------------------------------------------------
+# PX4 使用 MAVLink 实现与 QGroundControl （或者其它地面站软件）的通讯交流，
+# 同时也将其用于整合飞控板与飞控板之外的无人机部件：
+# 伴随计算机、支持 MAVLink 的摄像头等。
+# 在 Telem2 口上，依然不判断版本
+# if skynode base board is detected start Mavlink on Telem2
+mavlink start -d /dev/ttyS4 -b 3000000 -r 290000 -m onboard_low_bandwidth -x -z
+
+# Ensure nothing else starts on TEL2 (ttyS4)
+set PRT_TEL2_ 1
+

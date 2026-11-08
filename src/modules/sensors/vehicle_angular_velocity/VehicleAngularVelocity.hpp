@@ -182,6 +182,9 @@ private:
 	perf_counter_t _selection_changed_perf{perf_alloc(PC_COUNT, MODULE_NAME": gyro selection changed")};
 
 	DEFINE_PARAMETERS(
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1) && !defined(CONSTRAINED_FLASH)
+		(ParamInt<px4::params::SYS_AUTOSTART>) _param_sys_autostart,
+#endif
 #if !defined(CONSTRAINED_FLASH)
 		(ParamInt<px4::params::IMU_GYRO_DNF_EN>) _param_imu_gyro_dnf_en,
 		(ParamInt<px4::params::IMU_GYRO_DNF_HMC>) _param_imu_gyro_dnf_hmc,

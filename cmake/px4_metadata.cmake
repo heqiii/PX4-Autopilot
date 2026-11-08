@@ -66,12 +66,19 @@ function(px4_generate_airframes_xml)
 		REQUIRED BOARD
 		ARGN ${ARGN})
 
+	# Airframe edits/renames/removals must invalidate packaged QGC metadata.
+	file(GLOB_RECURSE airframe_metadata_inputs CONFIGURE_DEPENDS
+		${PX4_SOURCE_DIR}/ROMFS/${config_romfs_root}/init.d/*)
+	file(GENERATE OUTPUT ${PX4_BINARY_DIR}/airframe_metadata_inputs.txt
+		CONTENT "${airframe_metadata_inputs}")
 	add_custom_command(OUTPUT ${PX4_BINARY_DIR}/airframes.xml
 		COMMAND ${PYTHON_EXECUTABLE} ${PX4_SOURCE_DIR}/Tools/px_process_airframes.py
 			--airframes-path ${PX4_SOURCE_DIR}/ROMFS/${config_romfs_root}/init.d
 			--board CONFIG_ARCH_BOARD_${PX4_BOARD}
 			--xml ${PX4_BINARY_DIR}/airframes.xml
 		DEPENDS ${PX4_SOURCE_DIR}/Tools/px_process_airframes.py
+			${airframe_metadata_inputs}
+			${PX4_BINARY_DIR}/airframe_metadata_inputs.txt
 		COMMENT "Creating airframes.xml"
 		)
 	add_custom_target(airframes_xml DEPENDS ${PX4_BINARY_DIR}/airframes.xml)

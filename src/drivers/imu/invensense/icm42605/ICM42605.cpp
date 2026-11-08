@@ -51,7 +51,8 @@ ICM42605::ICM42605(const I2CSPIDriverConfig &config) :
 		_drdy_missed_perf = perf_alloc(PC_COUNT, MODULE_NAME": DRDY missed");
 	}
 
-	ConfigureSampleRate(_px4_gyro.get_max_rate_hz());
+	const int fifo_transfer_rate_hz = (config.custom1 > 0) ? config.custom1 : _px4_gyro.get_max_rate_hz();
+	ConfigureSampleRate(math::constrain(fifo_transfer_rate_hz, 250, 4000));
 }
 
 ICM42605::~ICM42605()

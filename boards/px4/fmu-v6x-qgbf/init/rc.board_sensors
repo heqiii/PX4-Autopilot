@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# PX4 FMUv6X specific board sensors init
+#------------------------------------------------------------------------------
+
+# 千古八方的玩具，只有一版，无需根据不同版本号（ver和rev）初始化不同的传感器。
+
+# system power
+board_adc start
+
+# 姿态传感器，
+icm20602 -R 6 -s start
+bmi088 -A -R 0 -s start
+bmi088 -G -R 0 -s start
+
+# 气压，高度传感器Possible internal Baro
+bmp388 -I -a 0x76 start
+
+# 磁传感器Internal magnetometer on I2c；
+# bmm150 -I -R 0 -a 0x10 start
+qmc5883p -I start
+
+# Don't try to start external baro on I2C3 as it can conflict with the MS5525DSO airspeed sensor.
+#ms5611 -X start
+

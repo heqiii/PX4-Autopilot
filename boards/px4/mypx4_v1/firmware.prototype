@@ -1,0 +1,17 @@
+{
+    "board_id": 53,
+    "magic": "PX4FWv1",
+    "board_name": "px4-mypx4_v1",
+    "description": "Firmware for the mypx4_v1 board (based on fmu-v6x)",
+    "board_app": "px4_mypx4_v1_default",
+    "image": "px4_mypx4_v1_default",
+    "build_time": 0,
+    "summary": "mypx4_v1",
+    "version": "0.1",
+    "image_size": 0,
+    "image_maxsize": 1966080,
+    "git_identity": "",
+    "board_revision": 0,
+    "parameters": "parameters.xml",
+    "airframes": "airframes.xml"
+}

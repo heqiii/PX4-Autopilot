@@ -1,0 +1,7042 @@
+{
+  "release": "HE_PX4_v1.0.15",
+  "revision": 26,
+  "workbook_sha256": "45109a6892afded9e898bbfed67a48e66e016a7b581005c2f30090fcd4651295",
+  "uid": 3473208829032346417,
+  "uid2": [
+    0,
+    6,
+    0,
+    0,
+    0,
+    0,
+    53,
+    57,
+    51,
+    49,
+    48,
+    51,
+    81,
+    7,
+    0,
+    79,
+    0,
+    45
+  ],
+  "source_count": 963,
+  "release_overrides": {"HE_PX4_v1.1.0": {"SER_TEL3_BAUD": 115200}},
+  "excluded": {
+    "MYPX4_CFG_VER": "事务标志26；部署25仅推进标志，保留全部实际参数",
+    "COM_FLIGHT_UUID": "运行累计飞行编号，保留现场值",
+    "LND_FLIGHT_T_HI": "累计飞行时长高位，保留现场值",
+    "LND_FLIGHT_T_LO": "累计飞行时长低位，保留现场值"
+  },
+  "entries": [
+    {
+      "name": "BAT1_A_PER_V",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_CAPACITY",
+      "type": "REAL32",
+      "raw_u32": 1165623296,
+      "value": 4000,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_I_CHANNEL",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_I_OVERWRITE",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_N_CELLS",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_R_INTERNAL",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_SOURCE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_V_CHANNEL",
+      "type": "INT32",
+      "raw_u32": 12,
+      "value": 12,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_V_CHARGED",
+      "type": "REAL32",
+      "raw_u32": 1082549862,
+      "value": 4.199999809265137,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_V_DIV",
+      "type": "REAL32",
+      "raw_u32": 1085695590,
+      "value": 5.699999809265137,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT1_V_EMPTY",
+      "type": "REAL32",
+      "raw_u32": 1080033280,
+      "value": 3.5,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_A_PER_V",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_CAPACITY",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_I_CHANNEL",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_I_OVERWRITE",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_N_CELLS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_R_INTERNAL",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_SOURCE",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_V_CHANNEL",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_V_CHARGED",
+      "type": "REAL32",
+      "raw_u32": 1082235290,
+      "value": 4.050000190734863,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_V_DIV",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT2_V_EMPTY",
+      "type": "REAL32",
+      "raw_u32": 1080452710,
+      "value": 3.5999999046325684,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT_AVRG_CURRENT",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT_CRIT_THR",
+      "type": "REAL32",
+      "raw_u32": 1032805417,
+      "value": 0.07000000029802322,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT_EMERGEN_THR",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT_LOW_THR",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15000000596046448,
+      "unit_specific": false
+    },
+    {
+      "name": "BAT_V_OFFS_CURR",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CAL_ACC0_ID",
+      "type": "INT32",
+      "raw_u32": 6946842,
+      "value": 6946842,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_PRIO",
+      "type": "INT32",
+      "raw_u32": 100,
+      "value": 100,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_XOFF",
+      "type": "REAL32",
+      "raw_u32": 1026250752,
+      "value": 0.04183197021484375,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_XSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_YOFF",
+      "type": "REAL32",
+      "raw_u32": 1017352960,
+      "value": 0.01996755599975586,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_YSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_ZOFF",
+      "type": "REAL32",
+      "raw_u32": 1036613440,
+      "value": 0.09837198257446289,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC0_ZSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_ID",
+      "type": "INT32",
+      "raw_u32": 2686986,
+      "value": 2686986,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_PRIO",
+      "type": "INT32",
+      "raw_u32": 50,
+      "value": 50,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_XOFF",
+      "type": "REAL32",
+      "raw_u32": 1023635584,
+      "value": 0.0320897102355957,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_XSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_YOFF",
+      "type": "REAL32",
+      "raw_u32": 3173084288,
+      "value": -0.03941011428833008,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_YSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_ZOFF",
+      "type": "REAL32",
+      "raw_u32": 3205920176,
+      "value": -0.587733268737793,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC1_ZSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC2_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_ACC3_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_BARO0_ID",
+      "type": "INT32",
+      "raw_u32": 6780449,
+      "value": 6780449,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_BARO0_OFF",
+      "type": "REAL32",
+      "raw_u32": 3278208512,
+      "value": -229.4921875,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_BARO0_PRIO",
+      "type": "INT32",
+      "raw_u32": 50,
+      "value": 50,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_ID",
+      "type": "INT32",
+      "raw_u32": 6684698,
+      "value": 6684698,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_PRIO",
+      "type": "INT32",
+      "raw_u32": 100,
+      "value": 100,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_XOFF",
+      "type": "REAL32",
+      "raw_u32": 3153656343,
+      "value": -0.007598172407597303,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_YOFF",
+      "type": "REAL32",
+      "raw_u32": 998332666,
+      "value": 0.003947374410927296,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO0_ZOFF",
+      "type": "REAL32",
+      "raw_u32": 3138767284,
+      "value": -0.002285582013428211,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_ID",
+      "type": "INT32",
+      "raw_u32": 2686986,
+      "value": 2686986,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_PRIO",
+      "type": "INT32",
+      "raw_u32": 50,
+      "value": 50,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_XOFF",
+      "type": "REAL32",
+      "raw_u32": 1014711342,
+      "value": 0.015336079522967339,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_YOFF",
+      "type": "REAL32",
+      "raw_u32": 1020740251,
+      "value": 0.026276877149939537,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO1_ZOFF",
+      "type": "REAL32",
+      "raw_u32": 3147673568,
+      "value": -0.004812225699424744,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO2_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_GYRO3_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ID",
+      "type": "INT32",
+      "raw_u32": 994337,
+      "value": 994337,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_PITCH",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_PRIO",
+      "type": "INT32",
+      "raw_u32": 50,
+      "value": 50,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ROLL",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_XCOMP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_XODIAG",
+      "type": "REAL32",
+      "raw_u32": 1024175570,
+      "value": 0.03410131484270096,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_XOFF",
+      "type": "REAL32",
+      "raw_u32": 3176986804,
+      "value": -0.05394811928272247,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_XSCALE",
+      "type": "REAL32",
+      "raw_u32": 1064675772,
+      "value": 0.9596211910247803,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_YAW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_YCOMP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_YODIAG",
+      "type": "REAL32",
+      "raw_u32": 3137520875,
+      "value": -0.0019953798037022352,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_YOFF",
+      "type": "REAL32",
+      "raw_u32": 1015053601,
+      "value": 0.015684666112065315,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_YSCALE",
+      "type": "REAL32",
+      "raw_u32": 1064602666,
+      "value": 0.9552637338638306,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ZCOMP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ZODIAG",
+      "type": "REAL32",
+      "raw_u32": 3106220258,
+      "value": -0.00015750856255181134,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ZOFF",
+      "type": "REAL32",
+      "raw_u32": 3181129934,
+      "value": -0.07626496255397797,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG0_ZSCALE",
+      "type": "REAL32",
+      "raw_u32": 1065903512,
+      "value": 1.0656003952026367,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG1_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG1_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG2_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG2_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG3_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG3_ROT",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG_COMP_TYP",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "CAL_MAG_SIDES",
+      "type": "INT32",
+      "raw_u32": 63,
+      "value": 63,
+      "unit_specific": true
+    },
+    {
+      "name": "CA_AIRFRAME",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_FAILURE_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_METHOD",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R0_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R10_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R11_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R1_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R2_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R3_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R4_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R5_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R6_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R7_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R8_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R9_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_PX",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_PY",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR0_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR10_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR11_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_PX",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_PY",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR1_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_KM",
+      "type": "REAL32",
+      "raw_u32": 3175926989,
+      "value": -0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_PX",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_PY",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR2_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_KM",
+      "type": "REAL32",
+      "raw_u32": 3175926989,
+      "value": -0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_PX",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_PY",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR3_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR4_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR5_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR6_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR7_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR8_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_AX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_AY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_AZ",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_CT",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_KM",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_PX",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_PY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR9_PZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_ROTOR_COUNT",
+      "type": "INT32",
+      "raw_u32": 4,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_R_REV",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV0_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV1_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV2_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV3_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV4_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV5_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV6_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CA_SV7_SLEW",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_BUZZER",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_FLIGHTTERM",
+      "type": "INT32",
+      "raw_u32": 121212,
+      "value": 121212,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_IO_SAFETY",
+      "type": "INT32",
+      "raw_u32": 22027,
+      "value": 22027,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_SUPPLY_CHK",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_USB_CHK",
+      "type": "INT32",
+      "raw_u32": 197848,
+      "value": 197848,
+      "unit_specific": false
+    },
+    {
+      "name": "CBRK_VTOLARMING",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ACT_FAIL_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARMABLE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_AUTH_ID",
+      "type": "INT32",
+      "raw_u32": 10,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_AUTH_MET",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_AUTH_REQ",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_AUTH_TO",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_BAT_MIN",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_CHK_ESCS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_HFLT_CHK",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_IMU_ACC",
+      "type": "REAL32",
+      "raw_u32": 1060320051,
+      "value": 0.699999988079071,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_IMU_GYR",
+      "type": "REAL32",
+      "raw_u32": 1048576000,
+      "value": 0.25,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_MAG_ANG",
+      "type": "INT32",
+      "raw_u32": 60,
+      "value": 60,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_MAG_STR",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_MIS_REQ",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_ODID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_SDCARD",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_SWISBTN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_ARM_WO_GPS",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_CPU_MAX",
+      "type": "REAL32",
+      "raw_u32": 1119748096,
+      "value": 95,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_DISARM_LAND",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_DISARM_MAN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_DISARM_PRFLT",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_DLL_EXCEPT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_DL_LOSS_T",
+      "type": "INT32",
+      "raw_u32": 5,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FAIL_ACT_T",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE1",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE2",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE3",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE4",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE5",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTMODE6",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLTT_LOW_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLT_PROFILE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FLT_TIME_MAX",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_FORCE_SAFETY",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_HLDL_LOSS_T",
+      "type": "INT32",
+      "raw_u32": 120,
+      "value": 120,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_HLDL_REG_T",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_HOME_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_HOME_IN_AIR",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_IMB_PROP_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_KILL_DISARM",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_LKDOWN_TKO",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_LOW_BAT_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_MODE_ARM_CHK",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_MOT_TEST_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_OBC_LOSS_T",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_OBL_RC_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_OF_LOSS_T",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_PARACHUTE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_POSCTL_NAVL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_POS_FS_EPH",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_POS_LOW_ACT",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_POS_LOW_EPH",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_POWER_COUNT",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_PREARM_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_QC_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RAM_MAX",
+      "type": "REAL32",
+      "raw_u32": 1119748096,
+      "value": 95,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RCL_EXCEPT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RC_ARM_HYST",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RC_IN_MODE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RC_LOSS_T",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RC_OVERRIDE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_RC_STICK_OV",
+      "type": "REAL32",
+      "raw_u32": 1106247680,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_SPOOLUP_TIME",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_TAKEOFF_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_THROW_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_THROW_SPEED",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_VEL_FS_EVH",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_WIND_MAX",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_WIND_MAX_ACT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "COM_WIND_WARN",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CP_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1053609165,
+      "value": 0.4000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "CP_DIST",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "CP_GO_NO_DATA",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "CP_GUIDE_ANG",
+      "type": "REAL32",
+      "raw_u32": 1106247680,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ABIAS_INIT",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ABL_ACCLIM",
+      "type": "REAL32",
+      "raw_u32": 1103626240,
+      "value": 25,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ABL_GYRLIM",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ABL_LIM",
+      "type": "REAL32",
+      "raw_u32": 1053609165,
+      "value": 0.4000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ABL_TAU",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ACC_B_NOISE",
+      "type": "REAL32",
+      "raw_u32": 994352038,
+      "value": 0.003000000026077032,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ACC_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1051931443,
+      "value": 0.3499999940395355,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AGP_CTRL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AGP_DELAY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AGP_GATE",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AGP_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AGP_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1063675494,
+      "value": 0.8999999761581421,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ANGERR_INIT",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ARSP_THR",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ASPD_MAX",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_ASP_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_AVEL_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BARO_CTRL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BARO_DELAY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BARO_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BARO_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1080033280,
+      "value": 3.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BCOEF_X",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BCOEF_Y",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BETA_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_BETA_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_DECL_TYPE",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_DELAY_MAX",
+      "type": "REAL32",
+      "raw_u32": 1128792064,
+      "value": 200,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_DRAG_CTRL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_DRAG_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1075838976,
+      "value": 2.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EAS_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1068708659,
+      "value": 1.399999976158142,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EVA_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EVP_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EVP_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EVV_GATE",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EVV_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_CTRL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_DELAY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_NOISE_MD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_POS_X",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_POS_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_POS_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_EV_QMIN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_FUSE_BETA",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GBIAS_INIT",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GND_EFF_DZ",
+      "type": "REAL32",
+      "raw_u32": 1082130432,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GND_MAX_HGT",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_CHECK",
+      "type": "INT32",
+      "raw_u32": 2047,
+      "value": 2047,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_CTRL",
+      "type": "INT32",
+      "raw_u32": 15,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1121714176,
+      "value": 110,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_POS_X",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_POS_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_POS_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_P_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_P_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_V_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_V_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GPS_YAW_OFF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GRAV_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GSF_TAS",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GYR_B_LIM",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15000000596046448,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GYR_B_NOISE",
+      "type": "REAL32",
+      "raw_u32": 981668463,
+      "value": 0.0010000000474974513,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_GYR_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1014350479,
+      "value": 0.014999999664723873,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_HDG_GATE",
+      "type": "REAL32",
+      "raw_u32": 1076258406,
+      "value": 2.5999999046325684,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_HEAD_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_HGT_REF",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_IMU_CTRL",
+      "type": "INT32",
+      "raw_u32": 7,
+      "value": 7,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_IMU_POS_X",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_IMU_POS_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_IMU_POS_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_LOG_VERBOSE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_ACCLIM",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_B_NOISE",
+      "type": "REAL32",
+      "raw_u32": 953267991,
+      "value": 9.999999747378752e-05,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_CHECK",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_CHK_INC",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_CHK_STR",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_DECL",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_DELAY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_E_NOISE",
+      "type": "REAL32",
+      "raw_u32": 981668463,
+      "value": 0.0010000000474974513,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_GATE",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MAG_TYPE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MCOEF",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15000000596046448,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MIN_RNG",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_MULTI_IMU",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_NOAID_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_NOAID_TOUT",
+      "type": "INT32",
+      "raw_u32": 5000000,
+      "value": 5000000,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_CTRL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_GATE",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_GYR_SRC",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_N_MAX",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_N_MIN",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15000000596046448,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_POS_X",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_POS_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_POS_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_QMIN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_OF_QMIN_GND",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PCOEF_XN",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PCOEF_XP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PCOEF_YN",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PCOEF_YP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PCOEF_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_PREDICT_US",
+      "type": "INT32",
+      "raw_u32": 10000,
+      "value": 10000,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_EPH",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_EPV",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_FIX",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_GPS_H",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_HDRIFT",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_NSATS",
+      "type": "INT32",
+      "raw_u32": 6,
+      "value": 6,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_PDOP",
+      "type": "REAL32",
+      "raw_u32": 1075838976,
+      "value": 2.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_SACC",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_REQ_VDRIFT",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_A_HMAX",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_A_VMAX",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_CTRL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_DELAY",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_FOG",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_K_GATE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_PITCH",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_POS_X",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_POS_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_POS_Z",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_QLTY_T",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_RNG_SFE",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SEL_ERR_RED",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SEL_IMU_ACC",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SEL_IMU_ANG",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SEL_IMU_RAT",
+      "type": "REAL32",
+      "raw_u32": 1088421888,
+      "value": 7,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SEL_IMU_VEL",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_SYNT_MAG_Z",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_TAS_GATE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_TAU_POS",
+      "type": "REAL32",
+      "raw_u32": 1048576000,
+      "value": 0.25,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_TAU_VEL",
+      "type": "REAL32",
+      "raw_u32": 1048576000,
+      "value": 0.25,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_TERR_GRAD",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_TERR_NOISE",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_VEL_LIM",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "EKF2_WIND_NSD",
+      "type": "REAL32",
+      "raw_u32": 1028443341,
+      "value": 0.05000000074505806,
+      "unit_specific": false
+    },
+    {
+      "name": "EV_TSK_RC_LOSS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "EV_TSK_STAT_DIS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_ACT_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_ACT_MOT_C2T",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_ACT_MOT_THR",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_ACT_MOT_TOUT",
+      "type": "INT32",
+      "raw_u32": 100,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_ESCS_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_EXT_ATS_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_EXT_ATS_TRIG",
+      "type": "INT32",
+      "raw_u32": 1900,
+      "value": 1900,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_FAIL_P",
+      "type": "INT32",
+      "raw_u32": 60,
+      "value": 60,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_FAIL_P_TTRI",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_FAIL_R",
+      "type": "INT32",
+      "raw_u32": 60,
+      "value": 60,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_FAIL_R_TTRI",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "FD_IMB_PROP_THR",
+      "type": "INT32",
+      "raw_u32": 30,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_ALT_M",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_DST",
+      "type": "REAL32",
+      "raw_u32": 1090519040,
+      "value": 8,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_FA",
+      "type": "REAL32",
+      "raw_u32": 1127481344,
+      "value": 180,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_HT",
+      "type": "REAL32",
+      "raw_u32": 1090519040,
+      "value": 8,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_MAX_VEL",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "FLW_TGT_RS",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "FW_AIRSPD_MAX",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "FW_AIRSPD_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "GF_ACTION",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "GF_MAX_HOR_DIST",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GF_MAX_VER_DIST",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GF_PREDICT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GF_SOURCE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_1_CONFIG",
+      "type": "INT32",
+      "raw_u32": 202,
+      "value": 202,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_1_GNSS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_1_PROTOCOL",
+      "type": "INT32",
+      "raw_u32": 6,
+      "value": 6,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_2_CONFIG",
+      "type": "INT32",
+      "raw_u32": 201,
+      "value": 201,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_2_PROTOCOL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_CFG_WIPE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_DUMP_COMM",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_SAT_INFO",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_UBX_BAUD2",
+      "type": "INT32",
+      "raw_u32": 230400,
+      "value": 230400,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_UBX_CFG_INTF",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_UBX_DYNMODEL",
+      "type": "INT32",
+      "raw_u32": 7,
+      "value": 7,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_UBX_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "GPS_YAW_OFFSET",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_ACC_GATE",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_HT_ERR_INIT",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_HT_NOISE",
+      "type": "REAL32",
+      "raw_u32": 996929018,
+      "value": 0.003599999938160181,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_THR_RANGE",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_VXY_THR",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "HTE_VZ_THR",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_ACCEL_CUTOFF",
+      "type": "REAL32",
+      "raw_u32": 1106247680,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_DGYRO_CUTOFF",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_CAL_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_CUTOFF",
+      "type": "REAL32",
+      "raw_u32": 1109393408,
+      "value": 40,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_DNF_BW",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_DNF_EN",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_DNF_HMC",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_DNF_MIN",
+      "type": "REAL32",
+      "raw_u32": 1103626240,
+      "value": 25,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_FFT_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_FFT_LEN",
+      "type": "INT32",
+      "raw_u32": 512,
+      "value": 512,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_FFT_MAX",
+      "type": "REAL32",
+      "raw_u32": 1125515264,
+      "value": 150,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_FFT_MIN",
+      "type": "REAL32",
+      "raw_u32": 1106247680,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_FFT_SNR",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_NF0_BW",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_NF0_FRQ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_NF1_BW",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_NF1_FRQ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_GYRO_RATEMAX",
+      "type": "INT32",
+      "raw_u32": 400,
+      "value": 400,
+      "unit_specific": false
+    },
+    {
+      "name": "IMU_INTEG_RATE",
+      "type": "INT32",
+      "raw_u32": 200,
+      "value": 200,
+      "unit_specific": false
+    },
+    {
+      "name": "LNDMC_ALT_GND",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "LNDMC_ROT_MAX",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "LNDMC_TRIG_TIME",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "LNDMC_XY_VEL_MAX",
+      "type": "REAL32",
+      "raw_u32": 1069547520,
+      "value": 1.5,
+      "unit_specific": false
+    },
+    {
+      "name": "LNDMC_Z_VEL_MAX",
+      "type": "REAL32",
+      "raw_u32": 1048576000,
+      "value": 0.25,
+      "unit_specific": false
+    },
+    {
+      "name": "MAN_ARM_GESTURE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAN_KILL_GEST_T",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_CONFIG",
+      "type": "INT32",
+      "raw_u32": 101,
+      "value": 101,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_FLOW_CTRL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_FORWARD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_RADIO_CTL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_0_RATE",
+      "type": "INT32",
+      "raw_u32": 1200,
+      "value": 1200,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_CONFIG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_FLOW_CTRL",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_FORWARD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_MODE",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_RADIO_CTL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_1_RATE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_CONFIG",
+      "type": "INT32",
+      "raw_u32": 103,
+      "value": 103,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_FLOW_CTRL",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_FORWARD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_RADIO_CTL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_2_RATE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_CONFIG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_FLOW_CTRL",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_FORWARD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_RADIO_CTL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_3_RATE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_COMP_ID",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_FWDEXTSP",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_HASH_CHK_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_HB_FORW_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_PROTO_VER",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_RADIO_TOUT",
+      "type": "INT32",
+      "raw_u32": 5,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_SIK_RADIO_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_SYS_ID",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_TYPE",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MAV_USEHILGPS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MBE_ENABLE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MBE_LEARN_GAIN",
+      "type": "REAL32",
+      "raw_u32": 1099956224,
+      "value": 18,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_EXPO",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_EXPO_Y",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_P_MAX",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_R_MAX",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_SUPEXPO",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_SUPEXPOY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ACRO_Y_MAX",
+      "type": "REAL32",
+      "raw_u32": 1120403456,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AIRMODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AT_APPLY",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AT_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AT_RISE_TIME",
+      "type": "REAL32",
+      "raw_u32": 1041194025,
+      "value": 0.14000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AT_START",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_AT_SYSID_AMP",
+      "type": "REAL32",
+      "raw_u32": 1060320051,
+      "value": 0.699999988079071,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_BAT_SCALE_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_MAN_TILT_TAU",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ORBIT_RAD_MAX",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ORBIT_YAW_MOD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_D",
+      "type": "REAL32",
+      "raw_u32": 994352038,
+      "value": 0.003,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_FF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_I",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.2,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_K",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1.0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_MAX",
+      "type": "REAL32",
+      "raw_u32": 1130102784,
+      "value": 220,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCHRATE_P",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PITCH_P",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_PR_INT_LIM",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_D",
+      "type": "REAL32",
+      "raw_u32": 994352038,
+      "value": 0.003,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_FF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_I",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.2,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_K",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1.0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_MAX",
+      "type": "REAL32",
+      "raw_u32": 1130102784,
+      "value": 220,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLLRATE_P",
+      "type": "REAL32",
+      "raw_u32": 1041865114,
+      "value": 0.15,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_ROLL_P",
+      "type": "REAL32",
+      "raw_u32": 1087373312,
+      "value": 6.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_RR_INT_LIM",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_DEF_HVEL",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_DEF_VVEL",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_DEF_YAWR",
+      "type": "REAL32",
+      "raw_u32": 1110704128,
+      "value": 45,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MAP_HVEL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MAP_PTCH",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MAP_VVEL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MAP_YAWR",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MIN_HVEL",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MIN_VVEL",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_SLOW_MIN_YAWR",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_D",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_FF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_I",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_K",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_MAX",
+      "type": "REAL32",
+      "raw_u32": 1128792064,
+      "value": 200,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAWRATE_P",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAW_P",
+      "type": "REAL32",
+      "raw_u32": 1077097267,
+      "value": 2.799999952316284,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAW_TQ_CUTOFF",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YAW_WEIGHT",
+      "type": "REAL32",
+      "raw_u32": 1053609165,
+      "value": 0.4000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "MC_YR_INT_LIM",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_COMMAND_TOUT",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_LND_ABRT_ALT",
+      "type": "INT32",
+      "raw_u32": 30,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_MNT_YAW_CTL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_TAKEOFF_ALT",
+      "type": "REAL32",
+      "raw_u32": 1075838976,
+      "value": 2.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_YAW_ERR",
+      "type": "REAL32",
+      "raw_u32": 1094713344,
+      "value": 12,
+      "unit_specific": false
+    },
+    {
+      "name": "MIS_YAW_TMT",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "MNT_MODE_IN",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ACC_DECOUPLE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ACC_DOWN_MAX",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ACC_HOR",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ACC_HOR_MAX",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ACC_UP_MAX",
+      "type": "REAL32",
+      "raw_u32": 1082130432,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_ALT_MODE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_HOLD_DZ",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_HOLD_MAX_XY",
+      "type": "REAL32",
+      "raw_u32": 1061997773,
+      "value": 0.800000011920929,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_HOLD_MAX_Z",
+      "type": "REAL32",
+      "raw_u32": 1058642330,
+      "value": 0.6000000238418579,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_JERK_AUTO",
+      "type": "REAL32",
+      "raw_u32": 1082130432,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_JERK_MAX",
+      "type": "REAL32",
+      "raw_u32": 1082130432,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_ALT1",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_ALT2",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_ALT3",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_CRWL",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_RADIUS",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_RC_HELP",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_LAND_SPEED",
+      "type": "REAL32",
+      "raw_u32": 1060320051,
+      "value": 0.699999988079071,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_MANTHR_MIN",
+      "type": "REAL32",
+      "raw_u32": 1034147594,
+      "value": 0.07999999821186066,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_MAN_TILT_MAX",
+      "type": "REAL32",
+      "raw_u32": 1090519040,
+      "value": 8,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_MAN_Y_MAX",
+      "type": "REAL32",
+      "raw_u32": 1110704128,
+      "value": 45,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_MAN_Y_TAU",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_POS_MODE",
+      "type": "INT32",
+      "raw_u32": 4,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_THR_CURVE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_THR_HOVER",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_THR_MAX",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_THR_MIN",
+      "type": "REAL32",
+      "raw_u32": 1039516303,
+      "value": 0.11999999731779099,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_THR_XY_MARG",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_TILTMAX_AIR",
+      "type": "REAL32",
+      "raw_u32": 1103626240,
+      "value": 25,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_TILTMAX_LND",
+      "type": "REAL32",
+      "raw_u32": 1094713344,
+      "value": 12,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_TKO_RAMP_T",
+      "type": "REAL32",
+      "raw_u32": 1077936128,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_TKO_SPEED",
+      "type": "REAL32",
+      "raw_u32": 1069547520,
+      "value": 1.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_USE_HTE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VELD_LP",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_LP",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_MANUAL",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_MAN_BACK",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_MAN_SIDE",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_NF_BW",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_VEL_NF_FRQ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_CRUISE",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_ERR_MAX",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_MAN_EXPO",
+      "type": "REAL32",
+      "raw_u32": 1058642330,
+      "value": 0.6000000238418579,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_P",
+      "type": "REAL32",
+      "raw_u32": 1064514355,
+      "value": 0.949999988079071,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_TRAJ_P",
+      "type": "REAL32",
+      "raw_u32": 1056964608,
+      "value": 0.5,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_VEL_ALL",
+      "type": "REAL32",
+      "raw_u32": 3240099840,
+      "value": -10,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_VEL_D_ACC",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_VEL_I_ACC",
+      "type": "REAL32",
+      "raw_u32": 1053609165,
+      "value": 0.4000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_VEL_MAX",
+      "type": "REAL32",
+      "raw_u32": 1067030938,
+      "value": 1.2000000476837158,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_XY_VEL_P_ACC",
+      "type": "REAL32",
+      "raw_u32": 1072064102,
+      "value": 1.7999999523162842,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_YAWRAUTO_ACC",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_YAWRAUTO_MAX",
+      "type": "REAL32",
+      "raw_u32": 1114636288,
+      "value": 60,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_YAW_EXPO",
+      "type": "REAL32",
+      "raw_u32": 1058642330,
+      "value": 0.6000000238418579,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_YAW_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_MAN_EXPO",
+      "type": "REAL32",
+      "raw_u32": 1058642330,
+      "value": 0.6000000238418579,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_P",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_ALL",
+      "type": "REAL32",
+      "raw_u32": 3225419776,
+      "value": -3,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_D_ACC",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_I_ACC",
+      "type": "REAL32",
+      "raw_u32": 1073741824,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_MAX_DN",
+      "type": "REAL32",
+      "raw_u32": 1060320051,
+      "value": 0.699999988079071,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_MAX_UP",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_VEL_P_ACC",
+      "type": "REAL32",
+      "raw_u32": 1082130432,
+      "value": 4,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_V_AUTO_DN",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "MPC_Z_V_AUTO_UP",
+      "type": "REAL32",
+      "raw_u32": 1050253722,
+      "value": 0.30000001192092896,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_ACC_RAD",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_DLL_ACT",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_FORCE_VT",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_FW_ALTL_RAD",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_FW_ALT_RAD",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_LOITER_RAD",
+      "type": "REAL32",
+      "raw_u32": 1117782016,
+      "value": 80,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_MC_ALT_RAD",
+      "type": "REAL32",
+      "raw_u32": 1061997773,
+      "value": 0.800000011920929,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_MIN_GND_DIST",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_MIN_LTR_ALT",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_RCL_ACT",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_TRAFF_AVOID",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_TRAFF_A_HOR",
+      "type": "REAL32",
+      "raw_u32": 1140457472,
+      "value": 500,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_TRAFF_A_VER",
+      "type": "REAL32",
+      "raw_u32": 1140457472,
+      "value": 500,
+      "unit_specific": false
+    },
+    {
+      "name": "NAV_TRAFF_COLL_T",
+      "type": "INT32",
+      "raw_u32": 60,
+      "value": 60,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_BTOUT",
+      "type": "REAL32",
+      "raw_u32": 1084227584,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_FAPPR_ALT",
+      "type": "REAL32",
+      "raw_u32": 1036831949,
+      "value": 0.10000000149011612,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_HACC_RAD",
+      "type": "REAL32",
+      "raw_u32": 1045220557,
+      "value": 0.20000000298023224,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_MAX_SRCH",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_SRCH_ALT",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "PLD_SRCH_TOUT",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS1",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS2",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS3",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS4",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS5",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS6",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS7",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS8",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_DIS9",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL1",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL2",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL3",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL4",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL5",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL6",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL7",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL8",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FAIL9",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC1",
+      "type": "INT32",
+      "raw_u32": 101,
+      "value": 101,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC2",
+      "type": "INT32",
+      "raw_u32": 102,
+      "value": 102,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC3",
+      "type": "INT32",
+      "raw_u32": 103,
+      "value": 103,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC4",
+      "type": "INT32",
+      "raw_u32": 104,
+      "value": 104,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC5",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC6",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC7",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC8",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_FUNC9",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX1",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX2",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX3",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX4",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX5",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX6",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX7",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX8",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MAX9",
+      "type": "INT32",
+      "raw_u32": 2000,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN1",
+      "type": "INT32",
+      "raw_u32": 1100,
+      "value": 1100,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN2",
+      "type": "INT32",
+      "raw_u32": 1100,
+      "value": 1100,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN3",
+      "type": "INT32",
+      "raw_u32": 1100,
+      "value": 1100,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN4",
+      "type": "INT32",
+      "raw_u32": 1100,
+      "value": 1100,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN5",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN6",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN7",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN8",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_MIN9",
+      "type": "INT32",
+      "raw_u32": 1000,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_REV",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_TIM0",
+      "type": "INT32",
+      "raw_u32": 400,
+      "value": 400,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_TIM1",
+      "type": "INT32",
+      "raw_u32": 400,
+      "value": 400,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_TIM2",
+      "type": "INT32",
+      "raw_u32": 400,
+      "value": 400,
+      "unit_specific": false
+    },
+    {
+      "name": "PWM_MAIN_TIM3",
+      "type": "INT32",
+      "raw_u32": 400,
+      "value": 400,
+      "unit_specific": false
+    },
+    {
+      "name": "RC10_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC10_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC10_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC10_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC10_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC11_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC11_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC11_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC11_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC11_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC12_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC12_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC12_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC12_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC12_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC13_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC13_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC13_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC13_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC13_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC14_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC14_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC14_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC14_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC14_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC15_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC15_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC15_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC15_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC15_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC16_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC16_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC16_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC16_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC16_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC17_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC17_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC17_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC17_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC17_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC18_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC18_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC18_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC18_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC18_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC1_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC1_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC1_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC1_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC1_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC2_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC2_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC2_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC2_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC2_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC3_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC3_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC3_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC3_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC3_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC4_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC4_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC4_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC4_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC4_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC5_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC5_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC5_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC5_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC5_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC6_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC6_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC6_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC6_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC6_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC7_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC7_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC7_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC7_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC7_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC8_DZ",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RC8_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC8_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC8_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC8_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC9_DZ",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC9_MAX",
+      "type": "REAL32",
+      "raw_u32": 1157234688,
+      "value": 2000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC9_MIN",
+      "type": "REAL32",
+      "raw_u32": 1148846080,
+      "value": 1000,
+      "unit_specific": false
+    },
+    {
+      "name": "RC9_REV",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "RC9_TRIM",
+      "type": "REAL32",
+      "raw_u32": 1153138688,
+      "value": 1500,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_ARMSWITCH_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_CHAN_CNT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_CRSF_PRT_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_DSM_PRT_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_ENG_MOT_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_FAILS_THR",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_GEAR_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_GHST_PRT_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_KILLSWITCH_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_LOITER_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_ARM_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX1",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX2",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX3",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX4",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX5",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_AUX6",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_ENG_MOT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_FAILSAFE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_FLAPS",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_FLTMODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_FLTM_BTN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_GEAR_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_KILL_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_LOITER_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_MODE_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_OFFB_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_PARAM1",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_PARAM2",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_PARAM3",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_PAY_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_PITCH",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_RETURN_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_ROLL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_TERM_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_THROTTLE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_TRANS_SW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_MAP_YAW",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_OFFB_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_PAYLOAD_MIDTH",
+      "type": "REAL32",
+      "raw_u32": 1048576000,
+      "value": 0.25,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_PAYLOAD_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_RETURN_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_SBUS_PRT_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RC_TRANS_TH",
+      "type": "REAL32",
+      "raw_u32": 1061158912,
+      "value": 0.75,
+      "unit_specific": false
+    },
+    {
+      "name": "RO_SPEED_LIM",
+      "type": "REAL32",
+      "raw_u32": 3212836864,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_APPR_FORCE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_CONE_ANG",
+      "type": "INT32",
+      "raw_u32": 45,
+      "value": 45,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_DESCEND_ALT",
+      "type": "REAL32",
+      "raw_u32": 1106247680,
+      "value": 30,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_LAND_DELAY",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_LOITER_RAD",
+      "type": "REAL32",
+      "raw_u32": 1117782016,
+      "value": 80,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_MIN_DIST",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_PLD_MD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_RETURN_ALT",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_TIME_FACTOR",
+      "type": "REAL32",
+      "raw_u32": 1066192077,
+      "value": 1.100000023841858,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_TIME_MARGIN",
+      "type": "INT32",
+      "raw_u32": 100,
+      "value": 100,
+      "unit_specific": false
+    },
+    {
+      "name": "RTL_TYPE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_BOOT_BAT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_DIRS_MAX",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_MISSION",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_PROFILE",
+      "type": "INT32",
+      "raw_u32": 849,
+      "value": 849,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_UTC_OFFSET",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SDLOG_UUID",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_BARO_QNH",
+      "type": "REAL32",
+      "raw_u32": 1149063168,
+      "value": 1013.25,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_BARO_RATE",
+      "type": "REAL32",
+      "raw_u32": 1101004800,
+      "value": 20,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_BAR_AUTOCAL",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_BOARD_ROT",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "SENS_BOARD_X_OFF",
+      "type": "REAL32",
+      "raw_u32": 1066489713,
+      "value": 1.1354809999465942,
+      "unit_specific": true
+    },
+    {
+      "name": "SENS_BOARD_Y_OFF",
+      "type": "REAL32",
+      "raw_u32": 3191800283,
+      "value": -0.18653051555156708,
+      "unit_specific": true
+    },
+    {
+      "name": "SENS_BOARD_Z_OFF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": true
+    },
+    {
+      "name": "SENS_DPRES_OFF",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_EN_THERMAL",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_EXT_I2C_PRB",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_GPS_MASK",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_GPS_PRIME",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_GPS_TAU",
+      "type": "REAL32",
+      "raw_u32": 1092616192,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_IMU_AUTOCAL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_IMU_CLPNOTI",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_IMU_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_MAG_AUTOCAL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_MAG_AUTOROT",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_MAG_MODE",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_MAG_RATE",
+      "type": "REAL32",
+      "raw_u32": 1097859072,
+      "value": 15,
+      "unit_specific": false
+    },
+    {
+      "name": "SENS_MAG_SIDES",
+      "type": "INT32",
+      "raw_u32": 63,
+      "value": 63,
+      "unit_specific": false
+    },
+    {
+      "name": "SEP_PORT1_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SEP_PORT2_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_GPS1_BAUD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_GPS2_BAUD",
+      "type": "INT32",
+      "raw_u32": 230400,
+      "value": 230400,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_TEL1_BAUD",
+      "type": "INT32",
+      "raw_u32": 115200,
+      "value": 115200,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_TEL2_BAUD",
+      "type": "INT32",
+      "raw_u32": 921600,
+      "value": 921600,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_TEL3_BAUD",
+      "type": "INT32",
+      "raw_u32": 115200,
+      "value": 115200,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_TEL4_BAUD",
+      "type": "INT32",
+      "raw_u32": 57600,
+      "value": 57600,
+      "unit_specific": false
+    },
+    {
+      "name": "SER_URT3_BAUD",
+      "type": "INT32",
+      "raw_u32": 115200,
+      "value": 115200,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_AUTOCONFIG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_AUTOSTART",
+      "type": "INT32",
+      "raw_u32": 4001,
+      "value": 4001,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_ACCEL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_BARO",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_GYRO",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_TDEL",
+      "type": "INT32",
+      "raw_u32": 24,
+      "value": 24,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_TMAX",
+      "type": "INT32",
+      "raw_u32": 10,
+      "value": 10,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_CAL_TMIN",
+      "type": "INT32",
+      "raw_u32": 5,
+      "value": 5,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_DM_BACKEND",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_FAC_CAL_MODE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_FAILURE_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_BARO",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_GPS",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_MAG",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_NUM_ASPD",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_NUM_DIST",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HAS_NUM_OF",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HF_MAV",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_HITL",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_PARAM_VER",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_STCK_EN",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_USB_AUTO",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "SYS_VEHICLE_RESP",
+      "type": "REAL32",
+      "raw_u32": 3201092813,
+      "value": -0.4000000059604645,
+      "unit_specific": false
+    },
+    {
+      "name": "TC_A_ENABLE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "TC_B_ENABLE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "TC_G_ENABLE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "TC_M_ENABLE",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "THR_MDL_FAC",
+      "type": "REAL32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "USB_MAV_MODE",
+      "type": "INT32",
+      "raw_u32": 2,
+      "value": 2,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_CFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_DOM_ID",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_KEY",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_PTCFG",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_RX_TO",
+      "type": "INT32",
+      "raw_u32": 4294967295,
+      "value": -1,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_SYNCC",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_SYNCT",
+      "type": "INT32",
+      "raw_u32": 1,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "UXRCE_DDS_TX_TO",
+      "type": "INT32",
+      "raw_u32": 3,
+      "value": 3,
+      "unit_specific": false
+    },
+    {
+      "name": "WV_EN",
+      "type": "INT32",
+      "raw_u32": 0,
+      "value": 0,
+      "unit_specific": false
+    },
+    {
+      "name": "WV_GAIN",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "WV_ROLL_MIN",
+      "type": "REAL32",
+      "raw_u32": 1065353216,
+      "value": 1,
+      "unit_specific": false
+    },
+    {
+      "name": "WV_YRATE_MAX",
+      "type": "REAL32",
+      "raw_u32": 1119092736,
+      "value": 90,
+      "unit_specific": false
+    }
+  ],
+  "workbook_version": "v6",
+  "workbook_path": "02_固件与调试/参数/MYPX4_黄金参数表_2026-10-18_v6.xlsx",
+  "source_kind": "USER_CONFIRMED_TARGET_TABLE_NOT_PHYSICAL_READBACK",
+  "v2_base_raw_sha256": "88dead68da552c5b398ffbd01171a1ac03a0eca996652555573446c34e6304ba",
+  "user_resolution": "2026-10-18 user authorizes UM982 compatibility repair, v1.0.15 build and full golden target workbook synchronization",
+  "differences_from_v2": [
+    {
+      "name": "CAL_BARO0_OFF",
+      "v2": -261.23046875,
+      "v3": -229.4921875,
+      "v3_raw_u32": 3278208512
+    },
+    {
+      "name": "CAL_MAG0_XOFF",
+      "v2": -0.01787230558693409,
+      "v3": -0.05394811928272247,
+      "v3_raw_u32": 3176986804
+    },
+    {
+      "name": "CAL_MAG0_YOFF",
+      "v2": 0.011662774719297886,
+      "v3": 0.015684666112065315,
+      "v3_raw_u32": 1015053601
+    },
+    {
+      "name": "CAL_MAG0_ZOFF",
+      "v2": -0.07906822115182877,
+      "v3": -0.07626496255397797,
+      "v3_raw_u32": 3181129934
+    },
+    {
+      "name": "MPC_VEL_MANUAL",
+      "v2": 0.30000001192092896,
+      "v3": 1,
+      "v3_raw_u32": 1065353216
+    },
+    {
+      "name": "MPC_VEL_MAN_BACK",
+      "v2": 0.30000001192092896,
+      "v3": 1,
+      "v3_raw_u32": 1065353216
+    },
+    {
+      "name": "MPC_VEL_MAN_SIDE",
+      "v2": 0.30000001192092896,
+      "v3": 1,
+      "v3_raw_u32": 1065353216
+    },
+    {
+      "name": "MPC_XY_VEL_MAX",
+      "v2": 0.5,
+      "v3": 1.2000000476837158,
+      "v3_raw_u32": 1067030938
+    },
+    {
+      "name": "PWM_MAIN_MAX1",
+      "v2": 1900,
+      "v3": 2000,
+      "v3_raw_u32": 2000
+    },
+    {
+      "name": "PWM_MAIN_MAX2",
+      "v2": 1900,
+      "v3": 2000,
+      "v3_raw_u32": 2000
+    },
+    {
+      "name": "PWM_MAIN_MAX3",
+      "v2": 1900,
+      "v3": 2000,
+      "v3_raw_u32": 2000
+    },
+    {
+      "name": "PWM_MAIN_MAX4",
+      "v2": 1900,
+      "v3": 2000,
+      "v3_raw_u32": 2000
+    },
+    {
+      "name": "PWM_MAIN_MIN1",
+      "v2": 1150,
+      "v3": 1100,
+      "v3_raw_u32": 1100
+    },
+    {
+      "name": "PWM_MAIN_MIN2",
+      "v2": 1150,
+      "v3": 1100,
+      "v3_raw_u32": 1100
+    },
+    {
+      "name": "PWM_MAIN_MIN3",
+      "v2": 1150,
+      "v3": 1100,
+      "v3_raw_u32": 1100
+    },
+    {
+      "name": "PWM_MAIN_MIN4",
+      "v2": 1150,
+      "v3": 1100,
+      "v3_raw_u32": 1100
+    },
+    {
+      "name": "RTL_RETURN_ALT",
+      "v2": 60.0,
+      "v3": 10,
+      "v3_raw_u32": 1092616192
+    }
+  ],
+  "base_workbook_scope": "Golden v6 synchronizes all959 target values and CFG26; offline target, not physical readback",
+  "release_overrides": [],
+  "upgrade_policy": "0..24 inherited applicable deltas;25 marker-only preserving all raw values;26 repeat preserves edits;>26 no downgrade",
+  "base_workbook_sha256": "2e9046b6acdfd8af85cd2acba8bdedfa7c21245d1abee4e468cd4cc31fc92534",
+  "differences_from_v4": [
+    {
+      "name": "IMU_GYRO_DNF_EN",
+      "before": 0,
+      "value": 2,
+      "raw_u32": 2
+    },
+    {
+      "name": "MAV_0_FLOW_CTRL",
+      "before": 2,
+      "value": 0,
+      "raw_u32": 0
+    },
+    {
+      "name": "MAV_0_FORWARD",
+      "before": 1,
+      "value": 0,
+      "raw_u32": 0
+    },
+    {
+      "name": "MPC_ALT_MODE",
+      "before": 2,
+      "value": 1,
+      "raw_u32": 1
+    },
+    {
+      "name": "MYPX4_CFG_VER",
+      "before": 18,
+      "value": 20,
+      "raw_u32": 20
+    },
+    {
+      "name": "SER_TEL1_BAUD",
+      "before": 57600,
+      "value": 115200,
+      "raw_u32": 115200
+    }
+  ],
+  "base_release": "HE_PX4_v1.0.14",
+  "base_git": "b6a07bc555d3d20333d20e00506000103dca36f0",
+  "inherited_release_overrides": [
+    {
+      "name": "GPS_1_CONFIG",
+      "before": 202,
+      "value": 202,
+      "raw_u32": 202
+    },
+    {
+      "name": "GPS_1_PROTOCOL",
+      "before": 6,
+      "value": 6,
+      "raw_u32": 6
+    },
+    {
+      "name": "GPS_2_CONFIG",
+      "before": 0,
+      "value": 201,
+      "raw_u32": 201
+    },
+    {
+      "name": "GPS_2_PROTOCOL",
+      "before": null,
+      "value": 1,
+      "raw_u32": 1
+    },
+    {
+      "name": "SER_GPS1_BAUD",
+      "before": 0,
+      "value": 0,
+      "raw_u32": 0
+    },
+    {
+      "name": "SER_GPS2_BAUD",
+      "before": 230400,
+      "value": 230400,
+      "raw_u32": 230400
+    },
+    {
+      "name": "SENS_GPS_MASK",
+      "before": 7,
+      "value": 0,
+      "raw_u32": 0
+    },
+    {
+      "name": "SENS_GPS_PRIME",
+      "before": 0,
+      "value": 0,
+      "raw_u32": 0
+    },
+    {
+      "name": "EKF2_GPS_CTRL",
+      "before": 15,
+      "value": 15,
+      "raw_u32": 15
+    },
+    {
+      "name": "EKF2_MAG_TYPE",
+      "before": 0,
+      "value": 1,
+      "raw_u32": 1
+    }
+  ],
+  "inherited_v1010_overrides": [
+    {
+      "name": "MC_PITCHRATE_K",
+      "before": 1,
+      "value": 0.9,
+      "before_raw_u32": 1065353216,
+      "raw_u32": 1063675494
+    },
+    {
+      "name": "MC_ROLLRATE_K",
+      "before": 1,
+      "value": 0.9,
+      "before_raw_u32": 1065353216,
+      "raw_u32": 1063675494
+    },
+    {
+      "name": "MYPX4_CFG_VER",
+      "before": 20,
+      "value": 21,
+      "scope": "transaction completion marker only"
+    }
+  ],
+  "additional_target_count": 0,
+  "additional_targets": [],
+  "um982": {
+    "physical_port": "GPS2",
+    "uart": 8,
+    "device": "/dev/ttyS7",
+    "logical_gps": 0,
+    "baud": 230400,
+    "protocol": 6,
+    "heading_offset_deg": 0,
+    "antenna_orientation": "NOT_CONFIRMED; zero assumes primary front, secondary rear",
+    "external_rtcm": "OPTIONAL_FOR_HEADING_REQUIRED_FOR_RTK_POSITION",
+    "receiver_configuration": "Board-profile COM1 startup requests AGRICA/UNIHEADINGA/GGA/RMC/GSA/GST every0.2s; no save/wipe; actual response requires hardware RETEST"
+  },
+  "dual_gnss": {
+    "primary": {
+      "port": "GPS2",
+      "uart": 8,
+      "device": "/dev/ttyS7",
+      "logical_instance": 0,
+      "protocol": 6,
+      "baud": 230400
+    },
+    "backup": {
+      "port": "GPS1",
+      "device": "/dev/ttyS0",
+      "logical_instance": 1,
+      "protocol": 1,
+      "baud": 0
+    },
+    "position_policy": "strict primary/backup, no averaging",
+    "timeout_s": 2,
+    "quality_fail_s": 1,
+    "recovery_s": 5,
+    "quality": "current EKF2_GPS_CHECK static metrics and EKF2_REQ_* thresholds; full drift/innovation checks remain in EKF",
+    "heading": "valid UM982 dual antenna preferred; healthy compass heading fallback; no yaw from original GPS",
+    "heading_offset": "new/legacy target0; revision23 upgrade preserves saved installation offset",
+    "physical_validation": "NOT_PERFORMED"
+  },
+  "restored_rate_gains": {
+    "MC_ROLLRATE_K": 1.0,
+    "MC_ROLLRATE_P": 0.15,
+    "MC_ROLLRATE_I": 0.2,
+    "MC_ROLLRATE_D": 0.003,
+    "MC_PITCHRATE_K": 1.0,
+    "MC_PITCHRATE_P": 0.15,
+    "MC_PITCHRATE_I": 0.2,
+    "MC_PITCHRATE_D": 0.003
+  },
+  "carbon_adaptation_status": "STOPPED_BY_USER",
+  "intended_propellers": "PLASTIC_HARDWARE_CHANGE_NOT_VERIFIED",
+  "filter_scope": "Inherited fixed FFT20/gyro40/D20 unchanged; not a complete v1.0.9 filter rollback",
+  "inherited_v5_additional_targets": [
+    "SER_GPS2_BAUD",
+    "GPS_2_PROTOCOL"
+  ]
+}

@@ -55,7 +55,7 @@ PARAM_DEFINE_FLOAT(MPC_XY_VEL_MAX, 12.f);
  * For default autonomous velocity see MPC_Z_V_AUTO_UP
  *
  * @unit m/s
- * @min 0.5
+ * @min 0.3
  * @max 8
  * @increment 0.1
  * @decimal 1
@@ -72,7 +72,7 @@ PARAM_DEFINE_FLOAT(MPC_Z_VEL_MAX_UP, 3.f);
  * For default autonomous velocity see MPC_Z_V_AUTO_UP
  *
  * @unit m/s
- * @min 0.5
+ * @min 0.3
  * @max 4
  * @increment 0.1
  * @decimal 1
@@ -143,6 +143,8 @@ PARAM_DEFINE_FLOAT(MPC_THR_MAX, 1.f);
  * Acceleration to tilt coupling
  *
  * Set to decouple tilt from vertical acceleration.
+ * This provides smoother flight but slightly worse tracking in position and auto modes.
+ * Unset if accurate position tracking during dynamic maneuvers is more important than a smooth flight.
  *
  * @boolean
  * @group Multicopter Position Control

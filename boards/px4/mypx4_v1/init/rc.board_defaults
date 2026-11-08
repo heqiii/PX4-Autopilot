@@ -1,0 +1,536 @@
+#!/bin/sh
+# HE_PX4_v1.0.15: golden configuration before autostart, HITL routing or drivers.
+# This branch supersedes revisions 0..16 for 4001 and retired MyPX4 IDs.
+set MYPX4_GOLDEN no
+param set-default SYS_AUTOSTART 4001
+if param compare SYS_AUTOSTART 4001
+then
+	set MYPX4_GOLDEN yes
+fi
+if param compare SYS_AUTOSTART 4081
+then
+	set MYPX4_GOLDEN yes
+fi
+if param compare SYS_AUTOSTART 4082
+then
+	set MYPX4_GOLDEN yes
+fi
+if param compare SYS_AUTOSTART 4014
+then
+	set MYPX4_GOLDEN yes
+fi
+if [ $MYPX4_GOLDEN = yes ]
+then
+	safety_button start
+	set LOGGER_BUF 256
+	if ! param mypx4-golden apply
+	then
+		echo "ERROR MYPX4: golden sync failed; startup stopped, reboot to retry"
+		exit 1
+	fi
+else
+# Other airframes retain their previous board policy; no golden synchronization.
+# Set Rover GNSS defaults before autostart (including startup paths without
+# rc.board_sensors). The post-airframe defaults hook also handles this profile.
+if param compare SYS_AUTOSTART 50000
+then
+	if ! param mypx4-golden defaults
+	then
+		echo "ERROR MYPX4: differential rover GNSS defaults failed; startup stopped"
+		exit 1
+	fi
+fi
+
+#!/bin/sh
+#
+# board specific defaults
+#------------------------------------------------------------------------------
+
+safety_button start
+
+# High-rate controller plus raw FIFO logging must absorb the SD card's observed
+# write-latency spikes. Keep this board-specific and leave other targets alone.
+set LOGGER_BUF 256
+
+# This board now uses the upstream Generic Quadcopter (4001) as its entry
+# airframe. A fresh parameter store starts 4001 without a QGC airframe change.
+# Map only the retired MyPX4/F450 IDs before rc.autostart looks up a script.
+# Keep the existing revision marker: 4001 performs its own revision-10
+# migration below and never replays the old 4081 PID/output migrations.
+param set-default SYS_AUTOSTART 4001
+if param compare SYS_AUTOSTART 4081
+then
+	param set SYS_AUTOSTART 4001
+	param save
+fi
+
+if param compare SYS_AUTOSTART 4082
+then
+	param set SYS_AUTOSTART 4001
+	param save
+fi
+
+if param compare SYS_AUTOSTART 4014
+then
+	param set SYS_AUTOSTART 4001
+	param save
+fi
+
+# Revision 12 repairs the observed 1.0.1/first-1.0.2 migration failures. Write the
+# selected 4001 configuration BEFORE set-default can make param set see
+# its target as the current runtime value and skip the persistent write.
+# Never erase the whole parameter store: keep calibrations, PID and motor
+# endpoints unless they are in this explicit, checked entry whitelist.
+if param compare SYS_AUTOSTART 4001
+then
+	if param greater MYPX4_CFG_VER 11
+	then
+		echo "MYPX4: 4001 revision 12 already applied"
+	else
+		echo "MYPX4: forcing 4001 entry parameters revision 12"
+		param set MAV_TYPE 2
+		param set MPC_MAN_TILT_MAX 4
+		param set MC_MAN_TILT_TAU 0
+		param set MPC_MAN_Y_MAX 15
+		param set MPC_MAN_Y_TAU 0
+		param set MPC_HOLD_DZ 0.1
+		param set MPC_XY_MAN_EXPO 0.6
+		param set MPC_Z_MAN_EXPO 0.6
+		param set MPC_YAW_EXPO 0.8
+		param set MPC_Z_VEL_MAX_UP 0.3
+		param set MPC_Z_VEL_MAX_DN 0.3
+		param set MPC_VEL_MANUAL 0.3
+		param set MPC_VEL_MAN_SIDE 0.3
+		param set MPC_VEL_MAN_BACK 0.3
+		param set MPC_XY_VEL_MAX 0.5
+		param set MPC_JERK_MAX 4.0
+		param set MPC_TKO_RAMP_T 1.5
+		param set MC_SLOW_DEF_HVEL 0.3
+		param set MC_SLOW_DEF_VVEL 0.3
+		param set COM_RC_IN_MODE 1
+		param set CA_ROTOR_COUNT 4
+		param set CA_ROTOR0_PX 1
+		param set CA_ROTOR0_PY 1
+		param set CA_ROTOR0_KM 0.05
+		param set CA_ROTOR1_PX -1
+		param set CA_ROTOR1_PY -1
+		param set CA_ROTOR1_KM 0.05
+		param set CA_ROTOR2_PX 1
+		param set CA_ROTOR2_PY -1
+		param set CA_ROTOR2_KM -0.05
+		param set CA_ROTOR3_PX -1
+		param set CA_ROTOR3_PY 1
+		param set CA_ROTOR3_KM -0.05
+		param set MAV_2_CONFIG 103
+		param set SER_TEL3_BAUD 57600
+		param set MAV_2_MODE 0
+		param set MAV_2_RATE 0
+		param set MAV_3_CONFIG 0
+		param set SDLOG_MODE 0
+		param set SDLOG_PROFILE 849
+		# These two were imported as target values before 1.0.2's writer ran,
+		# yet reverted to firmware defaults (0/1) in the completed startup.
+		# Toggle first, then persist the intended values even when param set
+		# would otherwise skip an equal current value.
+		param set IMU_GYRO_FFT_EN 0
+		param set IMU_GYRO_FFT_EN 1
+		param set SENS_IMU_MODE 1
+		param set SENS_IMU_MODE 0
+		param set EKF2_MULTI_IMU 2
+		param set BAT1_I_CHANNEL -1
+
+		# Sensor slot numbers are not fixed; write priorities only when the
+		# saved device ID identifies the BMI088 slot. The ICM slot is backup.
+		if param compare -s CAL_ACC0_ID 6946842
+		then
+			param set CAL_ACC0_PRIO 100
+			param set CAL_ACC1_PRIO 50
+		fi
+		if param compare -s CAL_ACC1_ID 6946842
+		then
+			param set CAL_ACC1_PRIO 100
+			param set CAL_ACC0_PRIO 50
+		fi
+		if param compare -s CAL_GYRO0_ID 6684698
+		then
+			param set CAL_GYRO0_PRIO 100
+			param set CAL_GYRO1_PRIO 50
+		fi
+		if param compare -s CAL_GYRO1_ID 6684698
+		then
+			param set CAL_GYRO1_PRIO 100
+			param set CAL_GYRO0_PRIO 50
+		fi
+
+		# A marker is proof of completed writes only after every required
+		# value reads back as intended and the first param save succeeds.
+		set MYPX4_CFG_OK yes
+		if ! param compare MAV_TYPE 2
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_MAN_TILT_MAX 4
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MC_MAN_TILT_TAU 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_MAN_Y_MAX 15
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_MAN_Y_TAU 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_HOLD_DZ 0.1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_XY_MAN_EXPO 0.6
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_Z_MAN_EXPO 0.6
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_YAW_EXPO 0.8
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_Z_VEL_MAX_UP 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_Z_VEL_MAX_DN 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_VEL_MANUAL 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_VEL_MAN_SIDE 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_VEL_MAN_BACK 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_XY_VEL_MAX 0.5
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_JERK_MAX 4.0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MPC_TKO_RAMP_T 1.5
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MC_SLOW_DEF_HVEL 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MC_SLOW_DEF_VVEL 0.3
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare COM_RC_IN_MODE 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR_COUNT 4
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR0_PX 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR0_PY 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR0_KM 0.05
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR1_PX -1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR1_PY -1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR1_KM 0.05
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR2_PX 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR2_PY -1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR2_KM -0.05
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR3_PX -1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR3_PY 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare CA_ROTOR3_KM -0.05
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MAV_2_CONFIG 103
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare SER_TEL3_BAUD 57600
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MAV_2_MODE 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MAV_2_RATE 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare MAV_3_CONFIG 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare SDLOG_MODE 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare SDLOG_PROFILE 849
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare IMU_GYRO_FFT_EN 1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare SENS_IMU_MODE 0
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare EKF2_MULTI_IMU 2
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if ! param compare BAT1_I_CHANNEL -1
+		then
+			set MYPX4_CFG_OK no
+		fi
+		if [ $MYPX4_CFG_OK = yes ]
+		then
+			if param save
+			then
+				param set MYPX4_CFG_VER 12
+				param save
+			else
+				echo "ERROR MYPX4: revision 12 parameter save failed"
+			fi
+		else
+			echo "ERROR MYPX4: revision 12 readback mismatch"
+		fi
+	fi
+fi
+
+# Mission data is stored in the onboard FRAM. The SD card remains optional and
+# is only needed for logs, backups and other files.
+param set-default COM_ARM_SDCARD 0
+
+# Main battery voltage is connected to ADC channel 12 through a 47k/10k
+# divider. No battery-current sensing channel has been identified on this
+# hardware, so leave BAT1_I_CHANNEL at the board default (-1 / disabled).
+param set-default BAT1_SOURCE 0
+param set-default BAT1_V_CHANNEL 12
+param set-default BAT1_I_CHANNEL -1
+param set-default BAT1_V_DIV 5.7
+param set-default BAT1_N_CELLS 3
+param set-default BAT1_CAPACITY 4000
+
+# User-requested reduced vertical speed limits for this airframe.
+param set-default MPC_Z_VEL_MAX_UP 1.0
+param set-default MPC_Z_VEL_MAX_DN 0.7
+
+# Conservative pilot-command envelope for early flight testing. Manual
+# horizontal speed is matched to the 0.3 m/s vertical limit. Maximum command
+# amplitudes are kept small, while manual attitude/yaw filtering is disabled
+# so the gamepad response is immediate. Inner-loop gains and rate authority
+# remain unchanged so the controller can still reject disturbances.
+param set-default MPC_MAN_TILT_MAX 10
+param set-default MC_MAN_TILT_TAU 0
+param set-default MPC_MAN_Y_MAX 45
+param set-default MPC_MAN_Y_TAU 0
+param set-default MPC_HOLD_DZ 0.05
+param set-default MPC_XY_MAN_EXPO 0.6
+param set-default MPC_Z_MAN_EXPO 0.6
+param set-default MPC_YAW_EXPO 0.8
+
+# Position mode remains acceleration based, with a reduced speed envelope. A high
+# jerk allowance avoids adding an artificial command delay; the speed,
+# acceleration and tilt limits still bound the actual motion amplitude.
+param set-default MPC_POS_MODE 4
+param set-default MPC_VEL_MANUAL 0.3
+param set-default MPC_VEL_MAN_SIDE 0.3
+param set-default MPC_VEL_MAN_BACK 0.3
+param set-default MPC_XY_VEL_MAX 0.5
+param set-default MPC_ACC_HOR 2.0
+param set-default MPC_ACC_HOR_MAX 2.0
+param set-default MPC_ACC_UP_MAX 2.0
+param set-default MPC_ACC_DOWN_MAX 2.0
+param set-default MPC_JERK_MAX 20
+param set-default MPC_TKO_RAMP_T 0.8
+param set-default MPC_TILTMAX_AIR 25
+param set-default MPC_TILTMAX_LND 8
+
+# Position Slow mode uses the same envelope without requiring AUX scaling.
+param set-default MC_SLOW_DEF_HVEL 0.3
+param set-default MC_SLOW_DEF_VVEL 0.3
+param set-default MC_SLOW_DEF_YAWR 30
+
+# If Acro mode is selected accidentally, keep manual rates low and soften the
+# stick center. Acro still does not self-level and is not intended for testing.
+param set-default MC_ACRO_R_MAX 45
+param set-default MC_ACRO_P_MAX 45
+param set-default MC_ACRO_Y_MAX 30
+param set-default MC_ACRO_EXPO 0.7
+param set-default MC_ACRO_EXPO_Y 0.7
+
+# Saved pilot settings are user-owned. Do not infer migration intent from
+# a value matching an old default; the 4001 entry profile owns revision 10.
+
+# The board has two physical IMUs: ICM42605 and BMI088. Keep the estimator in
+# multi-IMU mode, but do not wait for a non-existent third vehicle_imu instance.
+# rc.board_sensors starts BMI088 first, so a fresh calibration assigns it to
+# slot 0. Existing calibrations are corrected by device ID after sensor start.
+param set-default SENS_IMU_MODE 0
+param set-default EKF2_MULTI_IMU 2
+
+# Migrate the previous board default without overriding deliberate 1/2-IMU
+# selections made after this firmware is installed.
+if param compare -s EKF2_MULTI_IMU 3
+then
+	param set EKF2_MULTI_IMU 2
+fi
+
+# Detect a lost QGC/Wi-Fi datalink at the minimum supported timeout (5 s).
+# Joystick/manual-control loss remains faster at COM_RC_LOSS_T (0.5 s).
+# Remove the additional 5 s reaction delay; keep the actions user-selectable.
+param set-default COM_DL_LOSS_T 5
+param set-default COM_FAIL_ACT_T 0
+
+# Serial/MAVLink defaults
+#
+# Use the generated rc.serial startup path for all telemetry links. Keeping
+# serial links in MAV_* parameters avoids duplicate manual starts and lets PX4
+# apply the normal port conflict checks.
+
+# Free UART6 (/dev/ttyS5) for the companion link. RC serial fallback is
+# intentionally disabled in board_config.h.
+
+# TELEM1 / Linux companion on UART7 (/dev/ttyS6)
+param set-default MAV_0_CONFIG 101
+param set-default SER_TEL1_BAUD 921600
+param set-default MAV_0_MODE 2
+# Zero selects half the theoretical 8N1 bandwidth (baud/20), leaving margin
+# for framing, bursts and scheduling while keeping the baud rate unchanged.
+param set-default MAV_0_RATE 0
+param set-default MAV_0_FORWARD 0
+param set-default MAV_0_RADIO_CTL 0
+param set-default MAV_0_FLOW_CTRL 0
+
+# TELEM2 / high-speed ESP8266 telemetry on UART4 (/dev/ttyS3)
+param set-default MAV_1_CONFIG 102
+param set-default SER_TEL2_BAUD 921600
+param set-default MAV_1_MODE 0
+param set-default MAV_1_RATE 0
+param set-default MAV_1_FORWARD 0
+param set-default MAV_1_RADIO_CTL 0
+param set-default MAV_1_FLOW_CTRL 0
+
+# TELEM3 / 115200-baud digital telemetry on UART5 (/dev/ttyS4)
+param set-default MAV_2_CONFIG 103
+param set-default SER_TEL3_BAUD 115200
+param set-default MAV_2_MODE 0
+# Let PX4 derive a conservative data rate from the serial baud rate.
+param set-default MAV_2_RATE 0
+param set-default MAV_2_FORWARD 0
+param set-default MAV_2_RADIO_CTL 0
+param set-default MAV_2_FLOW_CTRL 0
+
+# Match the current 115200-baud telemetry peer. A saved PX4 rate takes precedence.
+
+# MTF-02/02P optical flow and range sensor on USART3 (/dev/ttyS2).
+# USB CDC remains available for MAVLink and nshterm debugging.
+# The module must output Mavlink_px4 (or compatible AUTO) at 115200 baud.
+# Leave this optional unvalidated sensor link disabled for the entry profile.
+param set-default MAV_3_CONFIG 0
+param set-default SER_URT3_BAUD 115200
+param set-default MAV_3_MODE 0
+param set-default MAV_3_RATE 0
+param set-default MAV_3_FORWARD 0
+param set-default MAV_3_RADIO_CTL 0
+param set-default MAV_3_FLOW_CTRL 0
+
+# TELEM4 / uXRCE-DDS on UART6 (/dev/ttyS5)
+
+# Assign TEL4 to the uXRCE-DDS client.
+param set-default UXRCE_DDS_CFG 104
+param set-default UXRCE_DDS_DOM_ID 42
+param set-default SER_TEL4_BAUD 921600
+
+# 4001 new-install defaults and repeat-boot fallback. The revision-12 writer
+# above handles existing stored values before any custom defaults are applied.
+if param compare SYS_AUTOSTART 4001
+then
+	param set-default CA_ROTOR1_AY 0
+	param set-default MPC_MAN_TILT_MAX 10
+	param set-default MPC_TILTMAX_AIR 25
+	param set-default MPC_MAN_Y_MAX 45
+	param set-default MPC_Z_VEL_MAX_UP 1.0
+	param set-default MPC_Z_VEL_MAX_DN 0.7
+	param set-default MC_ROLL_P 6.5
+	param set-default MC_PITCH_P 6.5
+	param set-default MPC_VEL_MANUAL 0.3
+	param set-default MPC_VEL_MAN_SIDE 0.3
+	param set-default MPC_VEL_MAN_BACK 0.3
+	param set-default MPC_XY_VEL_MAX 0.5
+	param set-default MC_SLOW_DEF_HVEL 0.3
+	param set-default MC_SLOW_DEF_VVEL 0.3
+	param set-default MPC_MAN_Y_TAU 0
+	param set-default MPC_HOLD_DZ 0.1
+	param set-default MPC_JERK_MAX 4.0
+	param set-default MPC_TKO_RAMP_T 1.5
+	param set-default COM_RC_IN_MODE 1
+	param set-default MAV_2_CONFIG 103
+	param set-default SER_TEL3_BAUD 115200
+	param set-default MAV_2_MODE 0
+	param set-default MAV_2_RATE 0
+	param set-default SDLOG_MODE 0
+	param set-default SDLOG_PROFILE 849
+	param set-default IMU_GYRO_FFT_EN 1
+fi
+
+fi

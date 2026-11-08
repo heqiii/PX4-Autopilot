@@ -1,0 +1,67 @@
+#!/bin/sh
+# Airframe scripts may replace runtime defaults. Restore the MyPX4 defaults
+# for the selected profile before consumers start; keep saved operator values.
+if ! param mypx4-golden defaults
+then
+	echo "ERROR MYPX4: golden defaults failed; startup stopped"
+	exit 1
+fi
+
+# Onboard sensors on internal I2C4. Addresses are 7-bit values.
+# QMC5883P: 0x2c; BMP388: 0x76.
+# Keep the sensor upside-down mapping while adding 180 deg of yaw correction:
+# PX4 rotation 14 = Roll 180 deg, Yaw 270 deg.
+qmc5883p -I -b 4 -a 0x2c -R 14 start
+bmp388 -I -b 4 -a 0x76 start
+
+# SPI IMUs. Start BMI088 first so it owns the first vehicle_imu/EKF instance
+# after a fresh calibration. ICM42605 remains enabled as the monitored backup.
+bmi088 -A -R 4 -s start
+bmi088 -G -R 4 -s start
+
+# Conservative ICM42605 settings for this custom PCB: 12 MHz SPI adds margin
+# below the 24 MHz device limit; 400 Hz FIFO transfers batch 20 samples from
+# the unchanged 8 kHz sensor ODR.
+icm42605 -R 4 -s -f 12000 -r 400 start
+
+# Prefer BMI088 regardless of whether an existing parameter set assigned it
+# to calibration slot 0 or 1. Known device IDs for this board are:
+# BMI088 accel 6946842, BMI088 gyro 6684698; ICM42605 accel/gyro 2686986.
+# Priority 100 selects BMI088 normally; priority 50 retains ICM42605 failover.
+if param compare -s CAL_ACC0_ID 6946842
+then
+	param set CAL_ACC0_PRIO 100
+	param set CAL_ACC1_PRIO 50
+fi
+
+if param compare -s CAL_ACC1_ID 6946842
+then
+	param set CAL_ACC1_PRIO 100
+	param set CAL_ACC0_PRIO 50
+fi
+
+if param compare -s CAL_GYRO0_ID 6684698
+then
+	param set CAL_GYRO0_PRIO 100
+	param set CAL_GYRO1_PRIO 50
+fi
+
+if param compare -s CAL_GYRO1_ID 6684698
+then
+	param set CAL_GYRO1_PRIO 100
+	param set CAL_GYRO0_PRIO 50
+fi
+
+# FM25V10A-G FRAM on SPI5 is initialized from the board MTD manifest.
+
+# TF card on SDMMC2
+sdmmc start -b 2
+
+# UART6 (/dev/ttyS5) is reserved for TEL4/Linux companion testing.
+# RC input can be re-enabled by setting RC_PORT_CONFIG to a free port.
+
+# CAN bus, enable when needed.
+# uavcannode start
+
+# ADC input
+board_adc start

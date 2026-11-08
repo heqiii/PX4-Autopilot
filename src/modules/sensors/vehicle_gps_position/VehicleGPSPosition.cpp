@@ -34,6 +34,9 @@
 #include "VehicleGPSPosition.hpp"
 
 #include <px4_platform_common/log.h>
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+#include <lib/parameters/param.h>
+#endif
 #include <lib/geo/geo.h>
 #include <lib/mathlib/mathlib.h>
 
@@ -82,6 +85,30 @@ void VehicleGPSPosition::ParametersUpdate(bool force)
 
 		updateParams();
 
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+		int32_t af = 0, main_port = 0, backup_port = 0, protocol = 0;
+		mypx4::GnssCriteria criteria;
+		const bool configured = param_get(param_find("SYS_AUTOSTART"), &af) == 0
+			&& param_get(param_find("GPS_1_CONFIG"), &main_port) == 0
+			&& param_get(param_find("GPS_2_CONFIG"), &backup_port) == 0
+			&& param_get(param_find("GPS_1_PROTOCOL"), &protocol) == 0
+			&& param_get(param_find("EKF2_GPS_CHECK"), &criteria.check_mask) == 0
+			&& param_get(param_find("EKF2_REQ_NSATS"), &criteria.min_satellites) == 0
+			&& param_get(param_find("EKF2_REQ_FIX"), &criteria.min_fix) == 0
+			&& param_get(param_find("EKF2_REQ_PDOP"), &criteria.max_pdop) == 0
+			&& param_get(param_find("EKF2_REQ_EPH"), &criteria.max_eph) == 0
+			&& param_get(param_find("EKF2_REQ_EPV"), &criteria.max_epv) == 0
+			&& param_get(param_find("EKF2_REQ_SACC"), &criteria.max_sacc) == 0;
+		const bool enable = configured && mypx4::dual_gps_routes(af, main_port, backup_port, protocol)
+			&& _param_sens_gps_mask.get() == 0 && _param_sens_gps_prime.get() == 0;
+		if (enable != _mypx4_dual_gps) { _mypx4_gps_selector = {}; }
+		_mypx4_dual_gps = enable;
+		_mypx4_gps_selector.setCriteria(criteria);
+		if (_mypx4_dual_gps) {
+			for (auto &sub : _sensor_gps_sub) { sub.registerCallback(); }
+		}
+#endif
+
 		if (_param_sens_gps_mask.get() == 0) {
 			_sensor_gps_sub[0].registerCallback();
 
@@ -118,6 +145,9 @@ void VehicleGPSPosition::Run()
 
 			_sensor_gps_sub[i].copy(&gps_data);
 			_gps_blending.setGpsData(gps_data, i);
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+			if (_mypx4_dual_gps) { _mypx4_gps_selector.setGpsData(gps_data, i); }
+#endif
 
 			if (!_sensor_gps_sub[i].registered()) {
 				_sensor_gps_sub[i].registerCallback();
@@ -125,6 +155,18 @@ void VehicleGPSPosition::Run()
 		}
 	}
 
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+	if (_mypx4_dual_gps) {
+		const int previous = _mypx4_gps_selector.selected();
+		sensor_gps_s output {};
+		const bool publish = _mypx4_gps_selector.update(hrt_absolute_time(), output);
+		if (previous != _mypx4_gps_selector.selected()) {
+			PX4_INFO("MyPX4 dual GNSS selected %d -> %d (0=UM982,1=GPS1,-1=none)",
+				 previous, _mypx4_gps_selector.selected());
+		}
+		if (publish) { _vehicle_gps_position_pub.publish(output); }
+	} else
+#endif
 	if (any_gps_updated) {
 		_gps_blending.update(hrt_absolute_time());
 
@@ -147,6 +189,14 @@ void VehicleGPSPosition::Run()
 
 void VehicleGPSPosition::PrintStatus()
 {
+#if defined(CONFIG_ARCH_BOARD_PX4_MYPX4_V1)
+	if (_mypx4_dual_gps) {
+		PX4_INFO_RAW("[MyPX4 dual GNSS] selected=%d reasons=%lu/%lu timeout=2s quality=1s recovery=5s\n",
+			_mypx4_gps_selector.selected(), (unsigned long)_mypx4_gps_selector.reason(0),
+			(unsigned long)_mypx4_gps_selector.reason(1));
+		return;
+	}
+#endif
 	PX4_INFO_RAW("[vehicle_gps_position] selected GPS: %d\n", _gps_blending.getSelectedGps());
 }
 

@@ -1,4 +1,4 @@
-__max_num_config_instances: &max_num_config_instances 3
+__max_num_config_instances: &max_num_config_instances 4
 
 module_name: MAVLink
 serial_config:
@@ -32,6 +32,10 @@ serial_config:
         then
             set MAV_ARGS "${MAV_ARGS} -z"
         fi
+        if param compare MAV_${i}_MODE 6
+        then
+            set MAV_ARGS "${MAV_ARGS} -F p:MAV_${i}_HL_FREQ"
+        fi
         mavlink start ${MAV_ARGS} -x
       port_config_param:
         name: MAV_${i}_CONFIG
@@ -40,7 +44,7 @@ serial_config:
         # 0: Telem1 Port (Telemetry Link)
         # 1: Telem2 Port (Companion Link). Disabled by default to reduce RAM usage
         # 2: Board-specific / no fixed function or port
-        default: [TEL1, "", ""]
+        default: [TEL1, "", "", ""]
       num_instances: *max_num_config_instances
       supports_networking: true
 
@@ -69,9 +73,10 @@ parameters:
                 10: Gimbal
                 11: Onboard Low Bandwidth
                 12: uAvionix
+                13: Low Bandwidth
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [0, 2, 0]
+            default: [0, 2, 0, 0]
 
         MAV_${i}_RATE:
             description:
@@ -90,7 +95,7 @@ parameters:
             unit: B/s
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [1200, 0, 0]
+            default: [1200, 0, 0, 0]
 
         MAV_${i}_FORWARD:
             description:
@@ -105,7 +110,7 @@ parameters:
             type: boolean
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [true, false, false]
+            default: [true, false, false, false]
 
         MAV_${i}_RADIO_CTL:
             description:
@@ -119,7 +124,7 @@ parameters:
             type: boolean
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [true, true, true]
+            default: [true, true, true, true]
 
         MAV_${i}_UDP_PRT:
             description:
@@ -131,7 +136,7 @@ parameters:
             type: int32
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [14556, 0, 0]
+            default: [14556, 0, 0, 0]
             requires_ethernet: true
 
         MAV_${i}_REMOTE_PRT:
@@ -144,7 +149,7 @@ parameters:
             type: int32
             reboot_required: true
             num_instances: *max_num_config_instances
-            default: [14550, 0, 0]
+            default: [14550, 0, 0, 0]
             requires_ethernet: true
 
         MAV_${i}_BROADCAST:
@@ -160,7 +165,7 @@ parameters:
                 1: Always broadcast
                 2: Only multicast
             num_instances: *max_num_config_instances
-            default: [1, 0, 0]
+            default: [1, 0, 0, 0]
             requires_ethernet: true
 
         MAV_${i}_FLOW_CTRL:
@@ -176,5 +181,23 @@ parameters:
                 1: Force on
                 2: Auto-detected
             num_instances: *max_num_config_instances
-            default: [2, 2, 2]
+            default: [2, 2, 2, 2]
+            reboot_required: true
+
+        MAV_${i}_HL_FREQ:
+            description:
+                short: Configures the frequency of HIGH_LATENCY2 stream for instance ${i}
+                long: |
+                    Positive real value that configures the transmission frequency of the
+                    HIGH_LATENCY2 stream for instance ${i}, configured in iridium mode.
+                    This parameter has no effect if the instance mode is different from iridium.
+
+            type: float
+            decimal: 3
+            increment: 0.001
+            unit: Hz
+            min: 0.0
+            max: 50.0
+            num_instances: *max_num_config_instances
+            default: [0.015, 0.015, 0.015, 0.015]
             reboot_required: true

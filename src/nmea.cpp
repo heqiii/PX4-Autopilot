@@ -1136,42 +1136,23 @@ void GPSDriverNMEA::handleHeading(float heading_deg, float heading_stddev_deg)
 
 void GPSDriverNMEA::request_unicore_messages()
 {
-    _unicore_request_last = gps_absolute_time();
-	// Configure only the receiver's COM1 output; never wipe logs or save flash.
-	{
-		// position
-		uint8_t buf[] = "GPGGA COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
-	}
+	_unicore_request_last = gps_absolute_time();
 
-	{
-		// velocity
-		uint8_t buf[] = "AGRICA COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
-	}
+	// MyPX4 is wired to receiver COM2. The generic AGRICA-detection path
+	// keeps its existing COM1 output. Send one log command at a time.
+	static constexpr const char *commands[][2] = {
+		{"GPGGA COM1 0.2\r\n", "GPGGA COM2 0.2\r\n"},
+		{"AGRICA COM1 0.2\r\n", "AGRICA COM2 0.2\r\n"},
+		{"UNIHEADINGA COM1 0.2\r\n", "UNIHEADINGA COM2 0.2\r\n"},
+		{"GPGST COM1 0.2\r\n", "GPGST COM2 0.2\r\n"},
+		{"GPGSA COM1 0.2\r\n", "GPGSA COM2 0.2\r\n"},
+		{"GPRMC COM1 0.2\r\n", "GPRMC COM2 0.2\r\n"},
+	};
+	const unsigned port = _unicore_mode ? 1 : 0;
 
-	{
-		// heading
-		uint8_t buf[] = "UNIHEADINGA COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
-	}
-
-	{
-		// eph, epv
-		uint8_t buf[] = "GPGST COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
-	}
-
-	{
-		// vdop
-		uint8_t buf[] = "GPGSA COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
-	}
-
-	{
-		// time
-		uint8_t buf[] = "GPRMC COM1 0.2\r\n";
-		write(buf, sizeof(buf) - 1);
+	for (const auto &outputs : commands) {
+		const char *command = outputs[port];
+		write(command, strlen(command));
 	}
 }
 
